@@ -1,0 +1,124 @@
+valttern@da5-cs-b221-09:/home/ad/lxhome/v/valttern/Linux/kurssit/otm2018/viikko1/otm_viikko1$ git log --stat | cat
+commit 43bf07e6e4e95837dc9e2bbb5b7f90bf1db105e0
+Author: Valtteri Nyman <valtteri.nyman@helsinki.fi>
+Date:   Tue Mar 20 12:37:01 2018 +0200
+
+    muutoksia fileihin 1-3
+
+ tiedostoja/file1.txt  | 0
+ tiedostoja/file2.txt  | 0
+ tiedostoja/file22.txt | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit d6f8414eb8014e1c84b0b911404e0e6638607b43
+Author: Valtteri Nyman <valtteri.nyman@helsinki.fi>
+Date:   Tue Mar 20 12:29:46 2018 +0200
+
+    uusi kansio tiedostoja
+
+ tiedostoja/file1.txt | 0
+ tiedostoja/file2.txt | 0
+ tiedostoja/file3.txt | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 30cc4d1d77932cfad731365295e7ef3bbe7a5410
+Author: Valtteri Nyman <valtteri.nyman@helsinki.fi>
+Date:   Tue Mar 20 12:21:47 2018 +0200
+
+    muutoksia
+
+ eka.txt    | 3 ++-
+ kolmas.txt | 5 ++++-
+ 2 files changed, 6 insertions(+), 2 deletions(-)
+
+commit 0d5508633ff13f93df537d8ae7e711c41f20638c
+Author: Valtteri Nyman <valtteri.nyman@helsinki.fi>
+Date:   Tue Mar 20 12:18:47 2018 +0200
+
+    uudelleen nimeys ja toisen poisto
+
+ eka.txt      | 16 ++++++++++++++++
+ tiedosto.txt | 16 ----------------
+ toinen.txt   |  1 -
+ 3 files changed, 16 insertions(+), 17 deletions(-)
+
+commit e9eac908954895d325c12c6947171093592b740e
+Author: Valtteri Nyman <valtteri.nyman@helsinki.fi>
+Date:   Tue Mar 20 12:12:16 2018 +0200
+
+    uutta tekstiä
+
+ tiedosto.txt | 11 ++++++++++-
+ 1 file changed, 10 insertions(+), 1 deletion(-)
+
+commit 88625575d580f2b9d457d73f43860f4abd260bff
+Author: Valtteri Nyman <valtteri.nyman@helsinki.fi>
+Date:   Tue Mar 20 12:11:02 2018 +0200
+
+    paljon pastettua tekstiä
+
+ tiedosto.txt | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+commit a792890066a95abf3560073634bbefa1833971c0
+Author: Valtteri Nyman <valtteri.nyman@helsinki.fi>
+Date:   Tue Mar 20 12:05:10 2018 +0200
+
+    uusi kansio stuff
+
+ stuff/uusi_tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 21424be3c48633a160a14122f41e576eb6b7deac
+Author: Valtteri Nyman <valtteri.nyman@helsinki.fi>
+Date:   Tue Mar 20 12:03:52 2018 +0200
+
+    päivitykset
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 68b68e96db69b2eea1eff353c397ca5b2b4fa292
+Author: Valtteri Nyman <valtteri.nyman@helsinki.fi>
+Date:   Tue Mar 20 12:02:01 2018 +0200
+
+    kolmas tiedosto, melkein unohdin kommentin
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit f1c3c8799cbab8c085f2f6782f5aacedc4273542
+Author: Valtteri Nyman <valtteri.nyman@helsinki.fi>
+Date:   Tue Mar 20 11:58:36 2018 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 3 +++
+ toinen.txt   | 0
+ 2 files changed, 3 insertions(+)
+
+commit e37d55158d1213a9d7fd919a28d128999503cf01
+Author: Valtteri Nyman <valtteri.nyman@helsinki.fi>
+Date:   Tue Mar 20 11:55:19 2018 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+_____________________________________
+____________________________________
+___________________________________
+
+
+valttern@da5-cs-b221-09:/home/ad/lxhome/v/valttern/Linux/kurssit/otm2018/otm-harjoitustyo$ git log --stat | cat
+commit f5410c7f48ba15b4f577482c3876d7b04ee5a94b
+Author: Valtteri Nyman <valtteri.nyman@helsinki.fi>
+Date:   Tue Mar 20 12:43:31 2018 +0200
+
+    initial commit
+
+ README.md | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+

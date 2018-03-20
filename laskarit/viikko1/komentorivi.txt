@@ -1,0 +1,37 @@
+valttern@da5-cs-b221-09:/home/ad/lxhome/v/valttern/Linux$ tree kurssit
+kurssit
+└── otm2018
+    ├── otm-harjoitustyo
+    │   ├── laskarit
+    │   │   └── viikko1
+    │   └── README.md
+    └── viikko1
+        ├── otm_viikko1
+        │   ├── eka.txt
+        │   ├── kolmas.txt
+        │   ├── stuff
+        │   │   └── uusi_tiedosto.txt
+        │   └── tiedostoja
+        │       ├── file22.txt
+        │       └── file3.txt
+        └── Unicafe
+            ├── pom.xml
+            └── src
+                ├── main
+                │   ├── java
+                │   │   └── com
+                │   │       └── mycompany
+                │   │           └── unicafe
+                │   │               ├── Kassapaate.java
+                │   │               ├── Maksukortti.java
+                │   │               └── Paaohjelma.java
+                │   └── resources
+                └── test
+                    └── java
+                        └── com
+                            └── mycompany
+                                └── unicafe
+                                    └── MaksukorttiTest.java
+
+21 directories, 11 files
+
