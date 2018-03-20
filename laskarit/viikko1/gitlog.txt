@@ -1,3 +1,5 @@
+MUUTOS DESYNC
+
 valttern@da5-cs-b221-09:/home/ad/lxhome/v/valttern/Linux/kurssit/otm2018/viikko1/otm_viikko1$ git log --stat | cat
 commit 43bf07e6e4e95837dc9e2bbb5b7f90bf1db105e0
 Author: Valtteri Nyman <valtteri.nyman@helsinki.fi>
