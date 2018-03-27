@@ -4,7 +4,7 @@
 
 [vaatimusmäärittely](https://github.com/valtterin/otm-harjoitustyo/blob/master/laskarit/viikko2/Vaatimusm%C3%A4%C3%A4rittely.txt)
 
-[työaikakirjanpito]()
+[työaikakirjanpito](https://github.com/valtterin/otm-harjoitustyo/blob/master/tyoaikakirjanpito.txt)
 
 ___________
 
