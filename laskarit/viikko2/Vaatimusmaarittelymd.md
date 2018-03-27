@@ -6,13 +6,6 @@ Sovellus on peli, joka pistää pelaajan muistin koetukselle. Pelaajalle näytet
 syöttää näkemänsä symbolit oikeassa järjetyksessä päästäkseen seuraavalle kierrokselle.
 
 
-### Käyttäjät
-
-Perus-pelissä ei tule olemaan käyttäjiä, mutta eri tyyppisiä käyttäjiä voitaisiin lisätä pelin kehittymisen yhteydessä. 
-
-
-## Perusversion toiminnallisuus:
-
 ### Pelin kulku:
 
 - Pelaajan painaessa Start-painiketta, peli käynnistyy alusta (kierros 1).
@@ -33,11 +26,12 @@ Kierros X:
 - Tähän tapaan peli käy lävitse ketjun kaikki symbolit järjestyksessä. Peli päättyy, jos pelaaja arvaa väärin. Mikäli pelaaja muistaa kaikki symbolit oikein, pelaaja 
 pääsee seuraavalle kierrokselle (X+1).
 
-Perusversiossa erilaisia mahdollisia symboleita on kokonaisuudessaan neljä. Toisin sanoen pelaajalle tarjotut neljä vaihtoehtoa ovat aina samat.
+Perusversiossa erilaisia mahdollisia symboleita on kokonaisuudessaan neljä. Toisin sanoen pelaajalle tarjotut neljä vaihtoehtoa ovat aina samat. Perus-pelissä ei tule olemaan käyttäjiä, mutta eri tyyppisiä käyttäjiä voitaisiin lisätä pelin kehittymisen yhteydessä. 
 
 
 
-Jatkokehitysideat
+## Jatkokehitysideat
+
 - Graafinen käyttöliittymä
   - valikko: uusi peli, parhaat pisteet
   - peli itse: käyttäjä voi hiirellä klikkailla pelin tarjoamia symboli-vaihtoehtoja
@@ -49,7 +43,7 @@ Jatkokehitysideat
    - Aika rajoite
    - Enemmän kuin neljä symbolia
    - Symboli-ketju säilyy läpi kierrosten samana, mutta siihen lisätään jokaisella kierroksella uusi symboli.
-    - sokko versio: vain uusin symboli näytetään pelaajalle uudella kierroksella, mutta pelaajan pitää muistaa&syöttää myös kaikki edelliset symbolit
+   - "Sokko" versio edellisestä: vain uusin symboli näytetään pelaajalle uudella kierroksella, mutta pelaajan pitää muistaa&syöttää myös kaikki edelliset symbolit
 
 - Käyttäjät
   - Pelaaja voi luoda itselleen normaalin käyttäjätunnuksen
