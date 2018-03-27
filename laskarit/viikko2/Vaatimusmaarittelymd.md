@@ -1,20 +1,19 @@
-﻿# Muistipeli
+﻿# Muistipeli - Vaatimusmäärittely
 
-Sovelluksen idea
+### Sovelluksen idea
 
 Sovellus on peli, joka pistää pelaajan muistin koetukselle. Pelaajalle näytetään kasvavassa määrin pitenevä ketju symboleja, ja pelaajan tulee 
 syöttää näkemänsä symbolit oikeassa järjetyksessä päästäkseen seuraavalle kierrokselle.
 
 
-Käyttäjät
+### Käyttäjät
 
 Perus-pelissä ei tule olemaan käyttäjiä, mutta eri tyyppisiä käyttäjiä voitaisiin lisätä pelin kehittymisen yhteydessä. 
 
 
-Perusversion toiminnallisuus:
+## Perusversion toiminnallisuus:
 
-
-Pelin kulku:
+### Pelin kulku:
 
 - Pelaajan painaessa Start-painiketta, peli käynnistyy alusta (kierros 1).
 
@@ -50,7 +49,7 @@ Jatkokehitysideat
    - Aika rajoite
    - Enemmän kuin neljä symbolia
    - Symboli-ketju säilyy läpi kierrosten samana, mutta siihen lisätään jokaisella kierroksella uusi symboli.
-      - sokko versio: vain uusin symboli näytetään pelaajalle uudella kierroksella, mutta pelaajan pitää muistaa&syöttää myös kaikki edelliset symbolit
+    - sokko versio: vain uusin symboli näytetään pelaajalle uudella kierroksella, mutta pelaajan pitää muistaa&syöttää myös kaikki edelliset symbolit
 
 - Käyttäjät
   - Pelaaja voi luoda itselleen normaalin käyttäjätunnuksen
