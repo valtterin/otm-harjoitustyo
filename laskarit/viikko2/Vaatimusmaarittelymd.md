@@ -33,19 +33,23 @@ Perusversiossa erilaisia mahdollisia symboleita on kokonaisuudessaan neljä. Toi
 ## Jatkokehitysideat
 
 - Graafinen käyttöliittymä
-  - valikko: uusi peli, parhaat pisteet
+  - valikko: uusi peli, parhaat pisteet, (ja mahdollisesti ynnä muu alla-oleva)
   - peli itse: käyttäjä voi hiirellä klikkailla pelin tarjoamia symboli-vaihtoehtoja
    
 - "Parhaat pisteet" -tietokanta
    - pelin päätyttyä pelaaja voi syöttää nimimerkkinsä, mikäli hänen pisteensä kelpuuttavat hänet "Parhaat pisteet" -listalle
 
-- Erilaisia variaatioita peruspelistä. Esimerkiksi:
+- Erilaisia variaatioita peruspelistä (ja käyttöliittymään mahdollisuus valita haluamansa variaatio). Esimerkiksi:
    - Aika rajoite
    - Enemmän kuin neljä symbolia
    - Symboli-ketju säilyy läpi kierrosten samana, mutta siihen lisätään jokaisella kierroksella uusi symboli.
-   - "Sokko" versio edellisestä: vain uusin symboli näytetään pelaajalle uudella kierroksella, mutta pelaajan pitää muistaa&syöttää myös kaikki edelliset symbolit
+   - "Sokko" versio edellisestä: Vain uusin symboli näytetään pelaajalle uudella kierroksella, mutta pelaajan pitää muistaa & syöttää myös kaikki edelliset symbolit
 
 - Käyttäjät
-  - Pelaaja voi luoda itselleen normaalin käyttäjätunnuksen
-  - Normaalin käyttäjätunnuksen
+  - Pelaaja voi luoda itselleen normaalin käyttäjätunnuksen käyttöliittymässä
+  - Pelaaja voi kirjautua sisään/ulos käyttöliittymässä
+  - Pelaaja voi käyttöliittymässä nähdä henkilökohtaiset parhaat pisteensä
+  - Normaalin käyttäjätunnuksen nimimerkkiä käytetään automaattisesti "Parhaat pisteet" -listalla
+  - Ylläpitäjän käyttäjätunnus, jolla voi poistaa normaalien käyttäjien tunnuksia ja pisteitä "Parhaat pisteet" -listalta
+  
 
