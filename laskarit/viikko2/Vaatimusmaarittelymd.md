@@ -49,7 +49,7 @@ Perusversiossa erilaisia mahdollisia symboleita on kokonaisuudessaan neljä. Toi
 - Käyttäjät
   - Pelaaja voi luoda itselleen normaalin käyttäjätunnuksen käyttöliittymässä
   - Pelaaja voi kirjautua sisään/ulos käyttöliittymässä
-  - Pelaaja voi käyttöliittymässä nähdä henkilökohtaiset parhaat pisteensä
+  - Pelaaja voi käyttöliittymässä nähdä tunnuksensa henkilökohtaiset parhaat pisteensä
   - Normaalin käyttäjätunnuksen nimimerkkiä käytetään automaattisesti "Parhaat pisteet" -listalla
   - Ylläpitäjän käyttäjätunnus, jolla voi poistaa normaalien käyttäjien tunnuksia ja pisteitä "Parhaat pisteet" -listalta
   
