@@ -38,6 +38,7 @@ Perusversiossa erilaisia mahdollisia symboleita on kokonaisuudessaan neljä. Toi
    
 - "Parhaat pisteet" -tietokanta
    - pelin päätyttyä pelaaja voi syöttää nimimerkkinsä, mikäli hänen pisteensä kelpuuttavat hänet "Parhaat pisteet" -listalle
+   - pelin päätyttyä pelaajalle näytetään kaikkien aikojen parhaat kymmenen tulosta (ja näihin liittyvät nimimerkit)
 
 - Erilaisia variaatioita peruspelistä (ja käyttöliittymään mahdollisuus valita haluamansa variaatio). Esimerkiksi:
    - Aika rajoite
