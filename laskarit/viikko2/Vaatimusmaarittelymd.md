@@ -11,14 +11,14 @@ syöttää näkemänsä symbolit oikeassa järjetyksessä päästäkseen seuraav
 - Pelaajan painaessa Start-painiketta, peli käynnistyy alusta (kierros 1).
 
 Kierros 1:
-- Peli näyttää pelaajalle ensin yhden satunnaisen symbolin hetken ajan, jonka jälkeen symboli piilotetaan.
+- Peli näyttää pelaajalle ensin yhden satunnaisen symbolin hetken ajan, minkä jälkeen symboli piilotetaan.
 - Peli kysyy pelaajalta minkä symbolin hän juuri näki, ja peli tarjoaa neljä eri vaihtoehtoa, joista pelaajan tulee valita oikea.
 - Jos pelaaja valitsee väärin, peli loppuu välittömästi: Game over, score: 0.
 - Jos pelaaja valitsee oikein, pelaajan pistemäärä kasvaa yhdellä, ja pelaaja pääsee seuraavalle kierrokselle.
 
 Kierros X:
-- Peli näyttää pelaajalle ensin yhden satunnaisen symbolin hetken ajan, jonka jälkeen symboli piilotetaan.
-- Peli näyttää seuraavaksi pelaajalle uuden satunnaisen symbolin hetken ajan, jonka jälkeen symboli piilotetaan.
+- Peli näyttää pelaajalle ensin yhden satunnaisen symbolin hetken ajan, minkä jälkeen symboli piilotetaan.
+- Peli näyttää seuraavaksi pelaajalle uuden satunnaisen symbolin hetken ajan, minkä jälkeen symboli piilotetaan.
 - Peli näyttää samaan tapaan symboleita peräjälkeen, kunnes symboleita on näytetty yhteensä kierrosta vastaava lukumäärä (X).
 - Tämän jälkeen peli kysyy pelaajalta, mikä oli ensimmäinen symboli, jonka hän näki. Peli tarjoaa pelaajalle neljä eri vaihtoehtoa, joista pelaajan tulee valita oikea.
 - Jos pelaaja valitsee väärin, peli loppuu välittömästi, ja pelaajan pistesaldo on kokonaisuudessaan siihen asti oikein muistettujen symboleiden summa.
