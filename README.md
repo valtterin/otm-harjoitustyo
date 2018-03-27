@@ -2,7 +2,7 @@
 
 [kattavuusraportti](https://github.com/valtterin/otm-harjoitustyo/blob/master/laskarit/viikko2/Screenshot%20from%202018-03-27%2018-33-43.png)
 
-[vaatimusmäärittely](https://github.com/valtterin/otm-harjoitustyo/blob/master/laskarit/viikko2/Vaatimusm%C3%A4%C3%A4rittely.txt)
+[vaatimusmäärittely](https://github.com/valtterin/otm-harjoitustyo/blob/master/laskarit/viikko2/Vaatimusmmaarittelymd.md)
 
 [työaikakirjanpito](https://github.com/valtterin/otm-harjoitustyo/blob/master/tyoaikakirjanpito.txt)
 
