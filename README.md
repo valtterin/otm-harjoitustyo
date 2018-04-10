@@ -1,18 +1,10 @@
-## VIIKON 2 LASKARIT
+# Muistipeli
 
-[kattavuusraportti](https://github.com/valtterin/otm-harjoitustyo/blob/master/laskarit/viikko2/Screenshot%20from%202018-03-27%2018-33-43.png)
-
-[vaatimusmäärittely](https://github.com/valtterin/otm-harjoitustyo/blob/master/laskarit/viikko2/Vaatimusmaarittelymd.md)
-
-[työaikakirjanpito](https://github.com/valtterin/otm-harjoitustyo/blob/master/tyoaikakirjanpito.txt)
-
-___________
+Peli näyttää pelaajalle ketjun symboleita. Pelaajan tulee muistaa näkemänsä symbolit oikeassa järjestyksessä.
 
 
-## VIIKON 1 LASKARIT
+## Dokumentaatio
 
-Tässä tavallista tekstiä ja **tämä osa on boldattu** ja *tämä osa on kursivoitu*.
+[vaatimusmäärittely](https://github.com/valtterin/otm-harjoitustyo/blob/master/Dokumentaatio/Vaatimusmaarittelymd.md)
 
-[gitlog.txt](https://github.com/valtterin/otm-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
-
-[komentorivi.txt](https://github.com/valtterin/otm-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
+[työaikakirjanpito](https://github.com/valtterin/otm-harjoitustyo/blob/master/Dokumentaatio/tyoaikakirjanpito.txt)
