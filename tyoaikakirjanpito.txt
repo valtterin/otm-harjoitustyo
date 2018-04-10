@@ -1,3 +1,0 @@
-12.3. (1 tunti) Alustavaa työn pohdintaa, ja vaatimusmäärittelyn pohjustusta
-27.3  (2 tuntia) Maven ja gitin asennus kotikoneelle, ja näihin tutustuminen
-27.3. (1 tunti) Vaatimusmäärittelyn viimeistely

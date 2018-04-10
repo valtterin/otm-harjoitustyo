@@ -1,0 +1,7 @@
+﻿12.3. 	(1 tunti)  Alustavaa työn pohdintaa, ja vaatimusmäärittelyn pohjustusta
+27.3  	(2 tuntia) Maven ja gitin asennus kotikoneelle, ja näihin tutustuminen
+27.3. 	(1 tunti)  Vaatimusmäärittelyn viimeistely
+28.3 	(1 tunti)  Sovelluksen rakenteen suunnittelua
+	(3 tuntia) SymbolChainin ja Roundin luonti ja testit
+29.3 	(3 tuntia) Tekstikäyttöliittymän luonti, graafisen käyttöliittymän luonnin kertausta ja testailua
+10.4.	(1 tunti)  Purkka graafinen käyttöliittymä
