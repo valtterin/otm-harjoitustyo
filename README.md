@@ -5,7 +5,7 @@ Peli näyttää pelaajalle ketjun symboleita. Pelaajan tulee muistaa näkemäns�
 
 ## Dokumentaatio
 
-[vaatimusmäärittely](https://github.com/valtterin/otm-harjoitustyo/blob/master/Dokumentaatio/Vaatimusmaarittely.md)
+[vaatimusmäärittely](https://github.com/valtterin/otm-harjoitustyo/blob/master/Dokumentaatio/vaatimusmaarittely.md)
 
 [työaikakirjanpito](https://github.com/valtterin/otm-harjoitustyo/blob/master/Dokumentaatio/tyoaikakirjanpito.txt)
 
