@@ -193,10 +193,7 @@ public class MuistipeliUi extends Application {
         // showSymbolsScene defined
         
         BorderPane showSymbolsPane = new BorderPane();
-        HBox showSymbolsBox = new HBox();
-        
-        showSymbolsBox.getChildren().add(new Label("Symboleita tulossa!"));
-        showSymbolsPane.setCenter(showSymbolsBox);
+        showSymbolsPane.setCenter(new Label("Kierros " + Integer.toString(normalgame.getRoundNumber()) + "!   Valmistaudu!"));
         showSymbolsScene = new Scene(showSymbolsPane);
         
         
@@ -219,7 +216,18 @@ public class MuistipeliUi extends Application {
                 askSymbolsPane.setTop(scoring);
                 // primaryStage.setScene(guessScene); 
                 if (normalgame.nextRound()) {
-                    primaryStage.setScene(showSymbolsScene);
+                    showSymbolsPane.setCenter(new Label("Kierros " + Integer.toString(normalgame.getRoundNumber()) + "!   Valmistaudu!"));
+                    Thread thread = new Thread(() -> {
+                        try {
+                            Thread.sleep(10);
+                        } catch (InterruptedException exc) {
+                            throw new Error("Unexpected interruption", exc);
+                        }
+                        Platform.runLater(() -> primaryStage.setScene(showSymbolsScene));
+                    });
+                    thread.setDaemon(true);
+                    thread.start();
+                    // primaryStage.setScene(showSymbolsScene);
 
 
                     System.out.println("Kierros: " + this.normalgame.getRoundNumber());
@@ -337,7 +345,18 @@ public class MuistipeliUi extends Application {
                 askSymbolsPane.setTop(scoring);
                 // primaryStage.setScene(guessScene); 
                 if (normalgame.nextRound()) {
-                    primaryStage.setScene(showSymbolsScene);
+                    showSymbolsPane.setCenter(new Label("Kierros " + Integer.toString(normalgame.getRoundNumber()) + "!   Valmistaudu!"));
+                    Thread thread = new Thread(() -> {
+                        try {
+                            Thread.sleep(10);
+                        } catch (InterruptedException exc) {
+                            throw new Error("Unexpected interruption", exc);
+                        }
+                        Platform.runLater(() -> primaryStage.setScene(showSymbolsScene));
+                    });
+                    thread.setDaemon(true);
+                    thread.start();
+                    // primaryStage.setScene(showSymbolsScene);
 
 
                     System.out.println("Kierros: " + this.normalgame.getRoundNumber());
@@ -455,7 +474,18 @@ public class MuistipeliUi extends Application {
                 askSymbolsPane.setTop(scoring);
                 // primaryStage.setScene(guessScene); 
                 if (normalgame.nextRound()) {
-                    primaryStage.setScene(showSymbolsScene);
+                    showSymbolsPane.setCenter(new Label("Kierros " + Integer.toString(normalgame.getRoundNumber()) + "!   Valmistaudu!"));
+                    Thread thread = new Thread(() -> {
+                        try {
+                            Thread.sleep(10);
+                        } catch (InterruptedException exc) {
+                            throw new Error("Unexpected interruption", exc);
+                        }
+                        Platform.runLater(() -> primaryStage.setScene(showSymbolsScene));
+                    });
+                    thread.setDaemon(true);
+                    thread.start();
+                    // primaryStage.setScene(showSymbolsScene);
 
 
                     System.out.println("Kierros: " + this.normalgame.getRoundNumber());
@@ -573,7 +603,18 @@ public class MuistipeliUi extends Application {
                 askSymbolsPane.setTop(scoring);
                 // primaryStage.setScene(guessScene); 
                 if (normalgame.nextRound()) {
-                    primaryStage.setScene(showSymbolsScene);
+                    showSymbolsPane.setCenter(new Label("Kierros " + Integer.toString(normalgame.getRoundNumber()) + "!   Valmistaudu!"));
+                    Thread thread = new Thread(() -> {
+                        try {
+                            Thread.sleep(10);
+                        } catch (InterruptedException exc) {
+                            throw new Error("Unexpected interruption", exc);
+                        }
+                        Platform.runLater(() -> primaryStage.setScene(showSymbolsScene));
+                    });
+                    thread.setDaemon(true);
+                    thread.start();
+                    // primaryStage.setScene(showSymbolsScene);
 
 
                     System.out.println("Kierros: " + this.normalgame.getRoundNumber());
