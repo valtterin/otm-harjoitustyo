@@ -1,4 +1,4 @@
-package muistipeli.muistipeli;
+package ui;
 // import static javafx.application.Application.launch;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -9,12 +9,13 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.application.Platform;
+import domain.NormalGame;
 
 
-public class uiTest extends Application {
+public class MuistipeliUi extends Application {
     
     NormalGame normalgame = new NormalGame();
-    Label score = new Label ("Pisteet: ");
+    Label score = new Label("Pisteet: ");
     Scene newGameScene;
     Scene showSymbolsScene;
     Scene guessScene;
@@ -40,7 +41,7 @@ public class uiTest extends Application {
         System.out.println("Valmistaudu!");
     
         // haetaan symbolit       
-        while(true) {
+        while (true) {
             // printtaa ruudulle haetun mukaisen symbolin, toisin sanoen vaihtaa laatikon väriä (ehkä olisi mukavampi jos olisi värillinen ja jonkin muotoinen)
             // pitääkö jokaisella värillä olla erillinen scene? vai miten vanhaa sceneä updatetaan?
             int print = this.normalgame.nextSymbol();
@@ -96,7 +97,7 @@ public class uiTest extends Application {
             delay = 0;
 
             // haetaan symbolit       
-            while(true) {
+            while (true) {
                 // printtaa ruudulle haetun mukaisen symbolin, toisin sanoen vaihtaa laatikon väriä (ehkä olisi mukavampi jos olisi värillinen ja jonkin muotoinen)
                 // pitääkö jokaisella värillä olla erillinen scene? vai miten vanhaa sceneä updatetaan?
                 int print = this.normalgame.nextSymbol();
@@ -200,7 +201,7 @@ public class uiTest extends Application {
         
         
         HBox bottomButtons = new HBox();
-	bottomButtons.setSpacing(10);
+        bottomButtons.setSpacing(10);
         
         scoring = new Label("Pisteet: " + Integer.toString(normalgame.getScore()));
         
@@ -313,16 +314,16 @@ public class uiTest extends Application {
 
         //nukutaan, purkkaa
     public void sleepTime(int time) {
-         try {
-            Thread.sleep(time*1000);
-        } catch(InterruptedException ex) {
+        try {
+            Thread.sleep(time * 1000);
+        } catch (InterruptedException ex) {
             Thread.currentThread().interrupt();
         }   
     }
     
     
     public static void main(String[] args) {
-        launch(uiTest.class);
+        launch(MuistipeliUi.class);
 
     }
         

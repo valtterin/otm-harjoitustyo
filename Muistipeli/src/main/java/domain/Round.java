@@ -1,5 +1,5 @@
 
-package muistipeli.muistipeli;
+package domain;
 
 
 // Round käsittelee pelin yhtä kierrosta: Round pitää kirjaa siitä, mitä symbolia kulloinkin käsitellään
@@ -8,7 +8,7 @@ public class Round {
     private SymbolChain chain;
     
     // uusi kierros: asettaa markkerin nollaan ja luo symboliketjun jonka pituus vastaa kierroksen numeroa
-    public Round(int roundNmbr){
+    public Round(int roundNmbr) {
         this.marker = 0;
         this.chain = new SymbolChain(roundNmbr);
     }
@@ -40,7 +40,7 @@ public class Round {
             this.marker = this.marker + 1;
             return true;
         }
-      return false; 
+        return false; 
     }
     
     public int getMarker() {

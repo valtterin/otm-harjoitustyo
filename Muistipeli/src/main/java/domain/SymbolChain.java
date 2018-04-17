@@ -1,4 +1,4 @@
-package muistipeli.muistipeli;
+package domain;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -11,7 +11,7 @@ public class SymbolChain {
     private ArrayList<Integer> chain;
     
     // voitaisiin lisätä parametri int complexity, jolla päätetään kuinka montaa mahdollista symbolia ketjusta löytyy
-    public SymbolChain(int length){
+    public SymbolChain(int length) {
         
         this.chain = new ArrayList<>();
         

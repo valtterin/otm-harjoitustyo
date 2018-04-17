@@ -1,6 +1,6 @@
 
 
-import muistipeli.muistipeli.NormalGame;
+import domain.NormalGame;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
