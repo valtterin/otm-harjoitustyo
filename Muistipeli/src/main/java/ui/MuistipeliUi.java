@@ -94,7 +94,7 @@ public class MuistipeliUi extends Application {
             System.out.println("Kierros: " + this.normalgame.getRoundNumber());
             System.out.println("Valmistaudu!");
             
-            delay = 0;
+            delay = 2000;
 
             // haetaan symbolit       
             while (true) {
@@ -106,9 +106,10 @@ public class MuistipeliUi extends Application {
                 if (print > 0) {
                     System.out.println(print);
                     if (print == 1) {
+                        int delay2 = delay;
                         Thread thread1 = new Thread(() -> {
                             try {
-                                Thread.sleep(delay);
+                                Thread.sleep(delay2);
                             } catch (InterruptedException exc) {
                                 throw new Error("Unexpected interruption", exc);
                             }
@@ -119,9 +120,10 @@ public class MuistipeliUi extends Application {
                         // primaryStage.setScene(symbolOneScene);
                     }
                     if (print == 2) {
+                        int delay2 = delay;
                         Thread thread2 = new Thread(() -> {
                             try {
-                                Thread.sleep(delay);
+                                Thread.sleep(delay2);
                             } catch (InterruptedException exc) {
                                 throw new Error("Unexpected interruption", exc);
                             }
@@ -132,9 +134,10 @@ public class MuistipeliUi extends Application {
                         // primaryStage.setScene(symbolTwoScene);
                     }
                     if (print == 3) {
+                        int delay2 = delay;
                         Thread thread3 = new Thread(() -> {
                             try {
-                                Thread.sleep(delay);
+                                Thread.sleep(delay2);
                             } catch (InterruptedException exc) {
                                 throw new Error("Unexpected interruption", exc);
                             }
@@ -145,9 +148,10 @@ public class MuistipeliUi extends Application {
                         // primaryStage.setScene(symbolThreeScene);
                     }
                     if (print == 4) {
+                        int delay2 = delay;
                         Thread thread4 = new Thread(() -> {
                             try {
-                                Thread.sleep(delay);
+                                Thread.sleep(delay2);
                             } catch (InterruptedException exc) {
                                 throw new Error("Unexpected interruption", exc);
                             }
@@ -169,7 +173,8 @@ public class MuistipeliUi extends Application {
             
             Thread thread5 = new Thread(() -> {
                 try {
-                    Thread.sleep(delay);
+                    int delay2 = delay;
+                    Thread.sleep(delay2);
                 } catch (InterruptedException exc) {
                     throw new Error("Unexpected interruption", exc);
                 }
