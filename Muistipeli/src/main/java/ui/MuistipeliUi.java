@@ -81,12 +81,21 @@ public class MuistipeliUi extends Application {
         
         
         
-        // newGameScene defined & atm endGameScene
+        // showSymbolsScene defined
+        
+        BorderPane showSymbolsPane = new BorderPane();
+        showSymbolsPane.setCenter(new Label("Kierros " + Integer.toString(normalgame.getRoundNumber()) + "!   Valmistaudu!"));
+        showSymbolsScene = new Scene(showSymbolsPane);
+        
+        
+        
+        // newGameScene defined
         BorderPane newGamePane = new BorderPane();
         HBox newGameButtonBox = new HBox();
         
         Button newGameButton = new Button("New Game");
         newGameButton.setOnAction((event) -> {
+            showSymbolsPane.setCenter(new Label("Kierros " + Integer.toString(normalgame.getRoundNumber()) + "!   Valmistaudu!"));
             normalgame = new NormalGame();
             primaryStage.setScene(showSymbolsScene);
             
@@ -190,11 +199,7 @@ public class MuistipeliUi extends Application {
 //        endGameScene = new Scene(newGamePane);
         
         
-        // showSymbolsScene defined
-        
-        BorderPane showSymbolsPane = new BorderPane();
-        showSymbolsPane.setCenter(new Label("Kierros " + Integer.toString(normalgame.getRoundNumber()) + "!   Valmistaudu!"));
-        showSymbolsScene = new Scene(showSymbolsPane);
+
         
         
         
@@ -328,6 +333,30 @@ public class MuistipeliUi extends Application {
                     primaryStage.setScene(guessScene); 
                 }
             } else {
+                showSymbolsPane.setCenter(new Label("Väärin! Peli loppui!   Pisteesi olivat: " + normalgame.getScore()));
+                    Thread thread = new Thread(() -> {
+                        try {
+                            Thread.sleep(10);
+                        } catch (InterruptedException exc) {
+                            throw new Error("Unexpected interruption", exc);
+                        }
+                        Platform.runLater(() -> primaryStage.setScene(showSymbolsScene));
+                    });
+                thread.setDaemon(true);
+                thread.start();
+                
+                    Thread threadd = new Thread(() -> {
+                        try {
+                            Thread.sleep(3000);
+                        } catch (InterruptedException exc) {
+                            throw new Error("Unexpected interruption", exc);
+                        }
+                        Platform.runLater(() -> primaryStage.setScene(newGameScene));
+                    });
+                threadd.setDaemon(true);
+                threadd.start();
+                
+                
                 System.out.println("Väärin! Peli loppui!");
                 System.out.println("Pisteesi olivat: " + normalgame.getScore());
                 primaryStage.setScene(newGameScene);
@@ -457,6 +486,30 @@ public class MuistipeliUi extends Application {
                     primaryStage.setScene(guessScene); 
                 }
             } else {
+                
+                showSymbolsPane.setCenter(new Label("Väärin! Peli loppui!   Pisteesi olivat: " + normalgame.getScore()));
+                    Thread thread = new Thread(() -> {
+                        try {
+                            Thread.sleep(10);
+                        } catch (InterruptedException exc) {
+                            throw new Error("Unexpected interruption", exc);
+                        }
+                        Platform.runLater(() -> primaryStage.setScene(showSymbolsScene));
+                    });
+                thread.setDaemon(true);
+                thread.start();
+                
+                    Thread threadd = new Thread(() -> {
+                        try {
+                            Thread.sleep(3000);
+                        } catch (InterruptedException exc) {
+                            throw new Error("Unexpected interruption", exc);
+                        }
+                        Platform.runLater(() -> primaryStage.setScene(newGameScene));
+                    });
+                threadd.setDaemon(true);
+                threadd.start();
+                
                 System.out.println("Väärin! Peli loppui!");
                 System.out.println("Pisteesi olivat: " + normalgame.getScore());
                 primaryStage.setScene(newGameScene);
@@ -586,6 +639,30 @@ public class MuistipeliUi extends Application {
                     primaryStage.setScene(guessScene); 
                 }
             } else {
+                
+                showSymbolsPane.setCenter(new Label("Väärin! Peli loppui!   Pisteesi olivat: " + normalgame.getScore()));
+                    Thread thread = new Thread(() -> {
+                        try {
+                            Thread.sleep(10);
+                        } catch (InterruptedException exc) {
+                            throw new Error("Unexpected interruption", exc);
+                        }
+                        Platform.runLater(() -> primaryStage.setScene(showSymbolsScene));
+                    });
+                thread.setDaemon(true);
+                thread.start();
+                
+                    Thread threadd = new Thread(() -> {
+                        try {
+                            Thread.sleep(3000);
+                        } catch (InterruptedException exc) {
+                            throw new Error("Unexpected interruption", exc);
+                        }
+                        Platform.runLater(() -> primaryStage.setScene(newGameScene));
+                    });
+                threadd.setDaemon(true);
+                threadd.start();
+                
                 System.out.println("Väärin! Peli loppui!");
                 System.out.println("Pisteesi olivat: " + normalgame.getScore());
                 primaryStage.setScene(newGameScene);
@@ -715,6 +792,30 @@ public class MuistipeliUi extends Application {
                     primaryStage.setScene(guessScene); 
                 }
             } else {
+                
+                showSymbolsPane.setCenter(new Label("Väärin! Peli loppui!   Pisteesi olivat: " + normalgame.getScore()));
+                    Thread thread = new Thread(() -> {
+                        try {
+                            Thread.sleep(10);
+                        } catch (InterruptedException exc) {
+                            throw new Error("Unexpected interruption", exc);
+                        }
+                        Platform.runLater(() -> primaryStage.setScene(showSymbolsScene));
+                    });
+                thread.setDaemon(true);
+                thread.start();
+                
+                    Thread threadd = new Thread(() -> {
+                        try {
+                            Thread.sleep(3000);
+                        } catch (InterruptedException exc) {
+                            throw new Error("Unexpected interruption", exc);
+                        }
+                        Platform.runLater(() -> primaryStage.setScene(newGameScene));
+                    });
+                threadd.setDaemon(true);
+                threadd.start();
+                
                 System.out.println("Väärin! Peli loppui!");
                 System.out.println("Pisteesi olivat: " + normalgame.getScore());
                 primaryStage.setScene(newGameScene);
