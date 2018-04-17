@@ -164,7 +164,6 @@ public class MuistipeliUi extends Application {
 
                 } else {   // jos print on nolla, niin hypätään seuraavaan vaiheeseen
                     System.out.println("Paina painikkeita juuri näkemässäsi järjestyksessä!");
-                    delay = delay + 2000;
                     break;
                 }
                 
@@ -218,10 +217,103 @@ public class MuistipeliUi extends Application {
                 System.out.println("Oikein!");
                 scoring = new Label("Pisteet: " + Integer.toString(normalgame.getScore()));
                 askSymbolsPane.setTop(scoring);
-                primaryStage.setScene(guessScene); 
+                // primaryStage.setScene(guessScene); 
                 if (normalgame.nextRound()) {
                     primaryStage.setScene(showSymbolsScene);
-                    this.showSymbols();
+
+
+                    System.out.println("Kierros: " + this.normalgame.getRoundNumber());
+                    System.out.println("Valmistaudu!");
+
+                    delay = 2000;
+
+                    // haetaan symbolit       
+                    while (true) {
+                        // printtaa ruudulle haetun mukaisen symbolin, toisin sanoen vaihtaa laatikon väriä (ehkä olisi mukavampi jos olisi värillinen ja jonkin muotoinen)
+                        // pitääkö jokaisella värillä olla erillinen scene? vai miten vanhaa sceneä updatetaan?
+                        int print = this.normalgame.nextSymbol();
+
+
+                        if (print > 0) {
+                            System.out.println(print);
+                            if (print == 1) {
+                                int delay2 = delay;
+                                Thread thread1 = new Thread(() -> {
+                                    try {
+                                        Thread.sleep(delay2);
+                                    } catch (InterruptedException exc) {
+                                        throw new Error("Unexpected interruption", exc);
+                                    }
+                                    Platform.runLater(() -> primaryStage.setScene(symbolOneScene));
+                                });
+                                thread1.setDaemon(true);
+                                thread1.start();
+                                // primaryStage.setScene(symbolOneScene);
+                            }
+                            if (print == 2) {
+                                int delay2 = delay;
+                                Thread thread2 = new Thread(() -> {
+                                    try {
+                                        Thread.sleep(delay2);
+                                    } catch (InterruptedException exc) {
+                                        throw new Error("Unexpected interruption", exc);
+                                    }
+                                    Platform.runLater(() -> primaryStage.setScene(symbolTwoScene));
+                                });
+                                thread2.setDaemon(true);
+                                thread2.start();
+                                // primaryStage.setScene(symbolTwoScene);
+                            }
+                            if (print == 3) {
+                                int delay2 = delay;
+                                Thread thread3 = new Thread(() -> {
+                                    try {
+                                        Thread.sleep(delay2);
+                                    } catch (InterruptedException exc) {
+                                        throw new Error("Unexpected interruption", exc);
+                                    }
+                                    Platform.runLater(() -> primaryStage.setScene(symbolThreeScene));
+                                });
+                                thread3.setDaemon(true);
+                                thread3.start();
+                                // primaryStage.setScene(symbolThreeScene);
+                            }
+                            if (print == 4) {
+                                int delay2 = delay;
+                                Thread thread4 = new Thread(() -> {
+                                    try {
+                                        Thread.sleep(delay2);
+                                    } catch (InterruptedException exc) {
+                                        throw new Error("Unexpected interruption", exc);
+                                    }
+                                    Platform.runLater(() -> primaryStage.setScene(symbolFourScene));
+                                });
+                                thread4.setDaemon(true);
+                                thread4.start();
+                                // primaryStage.setScene(symbolFourScene);
+                            }
+
+                        } else {   // jos print on nolla, niin hypätään seuraavaan vaiheeseen
+                            System.out.println("Paina painikkeita juuri näkemässäsi järjestyksessä!");
+                            // delay = delay + 2000;
+                            break;
+                        }
+
+                        delay = delay + 2000;
+                    }
+
+                    Thread thread5 = new Thread(() -> {
+                        try {
+                            int delay2 = delay;
+                            Thread.sleep(delay2);
+                        } catch (InterruptedException exc) {
+                            throw new Error("Unexpected interruption", exc);
+                        }
+                        Platform.runLater(() -> primaryStage.setScene(guessScene));
+                    });
+                    thread5.setDaemon(true);
+                    thread5.start();
+                    // primaryStage.setScene(guessScene);
                     scoring = new Label("Pisteet: " + Integer.toString(normalgame.getScore()));
                     askSymbolsPane.setTop(scoring);
                     // guessScene = new Scene(askSymbolsPane);  blows up
@@ -243,10 +335,103 @@ public class MuistipeliUi extends Application {
                 System.out.println("Oikein!");
                 scoring = new Label("Pisteet: " + Integer.toString(normalgame.getScore()));
                 askSymbolsPane.setTop(scoring);
-                primaryStage.setScene(guessScene); 
+                // primaryStage.setScene(guessScene); 
                 if (normalgame.nextRound()) {
                     primaryStage.setScene(showSymbolsScene);
-                    this.showSymbols();
+
+
+                    System.out.println("Kierros: " + this.normalgame.getRoundNumber());
+                    System.out.println("Valmistaudu!");
+
+                    delay = 2000;
+
+                    // haetaan symbolit       
+                    while (true) {
+                        // printtaa ruudulle haetun mukaisen symbolin, toisin sanoen vaihtaa laatikon väriä (ehkä olisi mukavampi jos olisi värillinen ja jonkin muotoinen)
+                        // pitääkö jokaisella värillä olla erillinen scene? vai miten vanhaa sceneä updatetaan?
+                        int print = this.normalgame.nextSymbol();
+
+
+                        if (print > 0) {
+                            System.out.println(print);
+                            if (print == 1) {
+                                int delay2 = delay;
+                                Thread thread1 = new Thread(() -> {
+                                    try {
+                                        Thread.sleep(delay2);
+                                    } catch (InterruptedException exc) {
+                                        throw new Error("Unexpected interruption", exc);
+                                    }
+                                    Platform.runLater(() -> primaryStage.setScene(symbolOneScene));
+                                });
+                                thread1.setDaemon(true);
+                                thread1.start();
+                                // primaryStage.setScene(symbolOneScene);
+                            }
+                            if (print == 2) {
+                                int delay2 = delay;
+                                Thread thread2 = new Thread(() -> {
+                                    try {
+                                        Thread.sleep(delay2);
+                                    } catch (InterruptedException exc) {
+                                        throw new Error("Unexpected interruption", exc);
+                                    }
+                                    Platform.runLater(() -> primaryStage.setScene(symbolTwoScene));
+                                });
+                                thread2.setDaemon(true);
+                                thread2.start();
+                                // primaryStage.setScene(symbolTwoScene);
+                            }
+                            if (print == 3) {
+                                int delay2 = delay;
+                                Thread thread3 = new Thread(() -> {
+                                    try {
+                                        Thread.sleep(delay2);
+                                    } catch (InterruptedException exc) {
+                                        throw new Error("Unexpected interruption", exc);
+                                    }
+                                    Platform.runLater(() -> primaryStage.setScene(symbolThreeScene));
+                                });
+                                thread3.setDaemon(true);
+                                thread3.start();
+                                // primaryStage.setScene(symbolThreeScene);
+                            }
+                            if (print == 4) {
+                                int delay2 = delay;
+                                Thread thread4 = new Thread(() -> {
+                                    try {
+                                        Thread.sleep(delay2);
+                                    } catch (InterruptedException exc) {
+                                        throw new Error("Unexpected interruption", exc);
+                                    }
+                                    Platform.runLater(() -> primaryStage.setScene(symbolFourScene));
+                                });
+                                thread4.setDaemon(true);
+                                thread4.start();
+                                // primaryStage.setScene(symbolFourScene);
+                            }
+
+                        } else {   // jos print on nolla, niin hypätään seuraavaan vaiheeseen
+                            System.out.println("Paina painikkeita juuri näkemässäsi järjestyksessä!");
+                            // delay = delay + 2000;
+                            break;
+                        }
+
+                        delay = delay + 2000;
+                    }
+
+                    Thread thread5 = new Thread(() -> {
+                        try {
+                            int delay2 = delay;
+                            Thread.sleep(delay2);
+                        } catch (InterruptedException exc) {
+                            throw new Error("Unexpected interruption", exc);
+                        }
+                        Platform.runLater(() -> primaryStage.setScene(guessScene));
+                    });
+                    thread5.setDaemon(true);
+                    thread5.start();
+                    // primaryStage.setScene(guessScene);
                     scoring = new Label("Pisteet: " + Integer.toString(normalgame.getScore()));
                     askSymbolsPane.setTop(scoring);
                     // guessScene = new Scene(askSymbolsPane);  blows up
@@ -268,10 +453,103 @@ public class MuistipeliUi extends Application {
                 System.out.println("Oikein!");
                 scoring = new Label("Pisteet: " + Integer.toString(normalgame.getScore()));
                 askSymbolsPane.setTop(scoring);
-                primaryStage.setScene(guessScene); 
+                // primaryStage.setScene(guessScene); 
                 if (normalgame.nextRound()) {
                     primaryStage.setScene(showSymbolsScene);
-                    this.showSymbols();
+
+
+                    System.out.println("Kierros: " + this.normalgame.getRoundNumber());
+                    System.out.println("Valmistaudu!");
+
+                    delay = 2000;
+
+                    // haetaan symbolit       
+                    while (true) {
+                        // printtaa ruudulle haetun mukaisen symbolin, toisin sanoen vaihtaa laatikon väriä (ehkä olisi mukavampi jos olisi värillinen ja jonkin muotoinen)
+                        // pitääkö jokaisella värillä olla erillinen scene? vai miten vanhaa sceneä updatetaan?
+                        int print = this.normalgame.nextSymbol();
+
+
+                        if (print > 0) {
+                            System.out.println(print);
+                            if (print == 1) {
+                                int delay2 = delay;
+                                Thread thread1 = new Thread(() -> {
+                                    try {
+                                        Thread.sleep(delay2);
+                                    } catch (InterruptedException exc) {
+                                        throw new Error("Unexpected interruption", exc);
+                                    }
+                                    Platform.runLater(() -> primaryStage.setScene(symbolOneScene));
+                                });
+                                thread1.setDaemon(true);
+                                thread1.start();
+                                // primaryStage.setScene(symbolOneScene);
+                            }
+                            if (print == 2) {
+                                int delay2 = delay;
+                                Thread thread2 = new Thread(() -> {
+                                    try {
+                                        Thread.sleep(delay2);
+                                    } catch (InterruptedException exc) {
+                                        throw new Error("Unexpected interruption", exc);
+                                    }
+                                    Platform.runLater(() -> primaryStage.setScene(symbolTwoScene));
+                                });
+                                thread2.setDaemon(true);
+                                thread2.start();
+                                // primaryStage.setScene(symbolTwoScene);
+                            }
+                            if (print == 3) {
+                                int delay2 = delay;
+                                Thread thread3 = new Thread(() -> {
+                                    try {
+                                        Thread.sleep(delay2);
+                                    } catch (InterruptedException exc) {
+                                        throw new Error("Unexpected interruption", exc);
+                                    }
+                                    Platform.runLater(() -> primaryStage.setScene(symbolThreeScene));
+                                });
+                                thread3.setDaemon(true);
+                                thread3.start();
+                                // primaryStage.setScene(symbolThreeScene);
+                            }
+                            if (print == 4) {
+                                int delay2 = delay;
+                                Thread thread4 = new Thread(() -> {
+                                    try {
+                                        Thread.sleep(delay2);
+                                    } catch (InterruptedException exc) {
+                                        throw new Error("Unexpected interruption", exc);
+                                    }
+                                    Platform.runLater(() -> primaryStage.setScene(symbolFourScene));
+                                });
+                                thread4.setDaemon(true);
+                                thread4.start();
+                                // primaryStage.setScene(symbolFourScene);
+                            }
+
+                        } else {   // jos print on nolla, niin hypätään seuraavaan vaiheeseen
+                            System.out.println("Paina painikkeita juuri näkemässäsi järjestyksessä!");
+                            // delay = delay + 2000;
+                            break;
+                        }
+
+                        delay = delay + 2000;
+                    }
+
+                    Thread thread5 = new Thread(() -> {
+                        try {
+                            int delay2 = delay;
+                            Thread.sleep(delay2);
+                        } catch (InterruptedException exc) {
+                            throw new Error("Unexpected interruption", exc);
+                        }
+                        Platform.runLater(() -> primaryStage.setScene(guessScene));
+                    });
+                    thread5.setDaemon(true);
+                    thread5.start();
+                    // primaryStage.setScene(guessScene);
                     scoring = new Label("Pisteet: " + Integer.toString(normalgame.getScore()));
                     askSymbolsPane.setTop(scoring);
                     // guessScene = new Scene(askSymbolsPane);  blows up
@@ -280,7 +558,7 @@ public class MuistipeliUi extends Application {
             } else {
                 System.out.println("Väärin! Peli loppui!");
                 System.out.println("Pisteesi olivat: " + normalgame.getScore());
-                primaryStage.setScene(newGameScene);   // endgamescene
+                primaryStage.setScene(newGameScene);
                 scoring = new Label("Pisteet: 0");
                 askSymbolsPane.setTop(scoring);
             }
@@ -293,10 +571,103 @@ public class MuistipeliUi extends Application {
                 System.out.println("Oikein!");
                 scoring = new Label("Pisteet: " + Integer.toString(normalgame.getScore()));
                 askSymbolsPane.setTop(scoring);
-                primaryStage.setScene(guessScene); 
+                // primaryStage.setScene(guessScene); 
                 if (normalgame.nextRound()) {
                     primaryStage.setScene(showSymbolsScene);
-                    this.showSymbols();
+
+
+                    System.out.println("Kierros: " + this.normalgame.getRoundNumber());
+                    System.out.println("Valmistaudu!");
+
+                    delay = 2000;
+
+                    // haetaan symbolit       
+                    while (true) {
+                        // printtaa ruudulle haetun mukaisen symbolin, toisin sanoen vaihtaa laatikon väriä (ehkä olisi mukavampi jos olisi värillinen ja jonkin muotoinen)
+                        // pitääkö jokaisella värillä olla erillinen scene? vai miten vanhaa sceneä updatetaan?
+                        int print = this.normalgame.nextSymbol();
+
+
+                        if (print > 0) {
+                            System.out.println(print);
+                            if (print == 1) {
+                                int delay2 = delay;
+                                Thread thread1 = new Thread(() -> {
+                                    try {
+                                        Thread.sleep(delay2);
+                                    } catch (InterruptedException exc) {
+                                        throw new Error("Unexpected interruption", exc);
+                                    }
+                                    Platform.runLater(() -> primaryStage.setScene(symbolOneScene));
+                                });
+                                thread1.setDaemon(true);
+                                thread1.start();
+                                // primaryStage.setScene(symbolOneScene);
+                            }
+                            if (print == 2) {
+                                int delay2 = delay;
+                                Thread thread2 = new Thread(() -> {
+                                    try {
+                                        Thread.sleep(delay2);
+                                    } catch (InterruptedException exc) {
+                                        throw new Error("Unexpected interruption", exc);
+                                    }
+                                    Platform.runLater(() -> primaryStage.setScene(symbolTwoScene));
+                                });
+                                thread2.setDaemon(true);
+                                thread2.start();
+                                // primaryStage.setScene(symbolTwoScene);
+                            }
+                            if (print == 3) {
+                                int delay2 = delay;
+                                Thread thread3 = new Thread(() -> {
+                                    try {
+                                        Thread.sleep(delay2);
+                                    } catch (InterruptedException exc) {
+                                        throw new Error("Unexpected interruption", exc);
+                                    }
+                                    Platform.runLater(() -> primaryStage.setScene(symbolThreeScene));
+                                });
+                                thread3.setDaemon(true);
+                                thread3.start();
+                                // primaryStage.setScene(symbolThreeScene);
+                            }
+                            if (print == 4) {
+                                int delay2 = delay;
+                                Thread thread4 = new Thread(() -> {
+                                    try {
+                                        Thread.sleep(delay2);
+                                    } catch (InterruptedException exc) {
+                                        throw new Error("Unexpected interruption", exc);
+                                    }
+                                    Platform.runLater(() -> primaryStage.setScene(symbolFourScene));
+                                });
+                                thread4.setDaemon(true);
+                                thread4.start();
+                                // primaryStage.setScene(symbolFourScene);
+                            }
+
+                        } else {   // jos print on nolla, niin hypätään seuraavaan vaiheeseen
+                            System.out.println("Paina painikkeita juuri näkemässäsi järjestyksessä!");
+                            // delay = delay + 2000;
+                            break;
+                        }
+
+                        delay = delay + 2000;
+                    }
+
+                    Thread thread5 = new Thread(() -> {
+                        try {
+                            int delay2 = delay;
+                            Thread.sleep(delay2);
+                        } catch (InterruptedException exc) {
+                            throw new Error("Unexpected interruption", exc);
+                        }
+                        Platform.runLater(() -> primaryStage.setScene(guessScene));
+                    });
+                    thread5.setDaemon(true);
+                    thread5.start();
+                    // primaryStage.setScene(guessScene);
                     scoring = new Label("Pisteet: " + Integer.toString(normalgame.getScore()));
                     askSymbolsPane.setTop(scoring);
                     // guessScene = new Scene(askSymbolsPane);  blows up
