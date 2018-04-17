@@ -216,6 +216,9 @@ public class MuistipeliUi extends Application {
             System.out.println("Vastasit: 1");
             if (normalgame.compareAnswer(1)) {
                 System.out.println("Oikein!");
+                scoring = new Label("Pisteet: " + Integer.toString(normalgame.getScore()));
+                askSymbolsPane.setTop(scoring);
+                primaryStage.setScene(guessScene); 
                 if (normalgame.nextRound()) {
                     primaryStage.setScene(showSymbolsScene);
                     this.showSymbols();
@@ -229,6 +232,7 @@ public class MuistipeliUi extends Application {
                 System.out.println("Pisteesi olivat: " + normalgame.getScore());
                 primaryStage.setScene(newGameScene);
                 scoring = new Label("Pisteet: 0");
+                askSymbolsPane.setTop(scoring);
             }
         });
         
@@ -237,6 +241,9 @@ public class MuistipeliUi extends Application {
             System.out.println("Vastasit: 2");
             if (normalgame.compareAnswer(2)) {
                 System.out.println("Oikein!");
+                scoring = new Label("Pisteet: " + Integer.toString(normalgame.getScore()));
+                askSymbolsPane.setTop(scoring);
+                primaryStage.setScene(guessScene); 
                 if (normalgame.nextRound()) {
                     primaryStage.setScene(showSymbolsScene);
                     this.showSymbols();
@@ -250,6 +257,7 @@ public class MuistipeliUi extends Application {
                 System.out.println("Pisteesi olivat: " + normalgame.getScore());
                 primaryStage.setScene(newGameScene);
                 scoring = new Label("Pisteet: 0");
+                askSymbolsPane.setTop(scoring);
             }
         });
         
@@ -258,6 +266,9 @@ public class MuistipeliUi extends Application {
             System.out.println("Vastasit: 3");
             if (normalgame.compareAnswer(3)) {
                 System.out.println("Oikein!");
+                scoring = new Label("Pisteet: " + Integer.toString(normalgame.getScore()));
+                askSymbolsPane.setTop(scoring);
+                primaryStage.setScene(guessScene); 
                 if (normalgame.nextRound()) {
                     primaryStage.setScene(showSymbolsScene);
                     this.showSymbols();
@@ -271,6 +282,7 @@ public class MuistipeliUi extends Application {
                 System.out.println("Pisteesi olivat: " + normalgame.getScore());
                 primaryStage.setScene(newGameScene);   // endgamescene
                 scoring = new Label("Pisteet: 0");
+                askSymbolsPane.setTop(scoring);
             }
         });
         
@@ -279,6 +291,9 @@ public class MuistipeliUi extends Application {
             System.out.println("Vastasit: 4");
             if (normalgame.compareAnswer(4)) {
                 System.out.println("Oikein!");
+                scoring = new Label("Pisteet: " + Integer.toString(normalgame.getScore()));
+                askSymbolsPane.setTop(scoring);
+                primaryStage.setScene(guessScene); 
                 if (normalgame.nextRound()) {
                     primaryStage.setScene(showSymbolsScene);
                     this.showSymbols();
@@ -292,6 +307,7 @@ public class MuistipeliUi extends Application {
                 System.out.println("Pisteesi olivat: " + normalgame.getScore());
                 primaryStage.setScene(newGameScene);
                 scoring = new Label("Pisteet: 0");
+                askSymbolsPane.setTop(scoring);
             }
         });
         
