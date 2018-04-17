@@ -7,5 +7,6 @@
 10.4.	(1 tunti)  Purkka graafinen käyttöliittymä
 16.4.	(4 tuntia) Sovelluksen rakenteen järkeistäminen (normalgame.java ja tälle testit)
 17.4.   (3 tuntia) Graafisen käyttöliittymän luontiin tutustumista
+        (1 tunti)  Checkstylen käyttöönotto
 
-Yhteensä: 19 tuntia
+Yhteensä: 20 tuntia
