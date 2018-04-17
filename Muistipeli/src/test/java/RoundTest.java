@@ -19,14 +19,10 @@ import static org.junit.Assert.*;
 public class RoundTest {
     
     Round newround;
-    
-    public RoundTest() {
-        newround = new Round(6);
-    }
 
-    
     @Before
     public void setUp() {
+        newround = new Round(6);
     }
 
     

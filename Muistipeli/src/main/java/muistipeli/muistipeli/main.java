@@ -29,28 +29,28 @@ public class main extends Application {
         button1.setOnAction((event) -> {
             System.out.println("Vastasit: 1");
             testi.compareAnswer(1);
-            testi.gameStatus();
+            //testi.gameStatus();
         });
         
         Button button2 = new Button("Kaksi");
         button2.setOnAction((event) -> {
             System.out.println("Vastasit: 2");
             testi.compareAnswer(2);
-            testi.gameStatus();
+            //testi.gameStatus();
         });
         
         Button button3 = new Button("Kolme");
         button3.setOnAction((event) -> {
             System.out.println("Vastasit: 3");
             testi.compareAnswer(3);
-            testi.gameStatus();
+            //testi.gameStatus();
         });
         
         Button button4 = new Button("Neljä");
         button4.setOnAction((event) -> {
             System.out.println("Vastasit: 4");
             testi.compareAnswer(4);
-            testi.gameStatus();
+            //testi.gameStatus();
 //            Label score1 = new Label ("Pisteet: 1");
 //            asettelu.setTop(score1);
 //            nakyma = new Scene(asettelu);
@@ -61,32 +61,24 @@ public class main extends Application {
         Button button5 = new Button("New Game");
         button5.setOnAction((event) -> {
             testi = new NormalGame();
-            testi.showSymbols();
-            testi.askSymbols();
+            //testi.showSymbols();
+            //testi.askSymbols();
         });
 
 	bottomButtons.getChildren().add(button1);
 	bottomButtons.getChildren().add(button2);
         bottomButtons.getChildren().add(button3);
         bottomButtons.getChildren().add(button4);
+        bottomButtons.getChildren().add(button5);
         
         
         
         BorderPane asettelu = new BorderPane();
-        asettelu.setTop(button5);
-
+        asettelu.setTop(score);
+        asettelu.setRight(new Label("oikea laita"));
         asettelu.setBottom(bottomButtons);
-
-        VBox info1 = new VBox();
-        info1.getChildren().add(new Label(""));
-        info1.getChildren().add(new Label("Tämä on purkka käyttöliittymä sovelluksen toiminnallisuuden havainnollistamiseksi."));
-        info1.getChildren().add(new Label(""));
-        info1.getChildren().add(new Label("Paina 'New Game' -painiketta ensin."));
-        info1.getChildren().add(new Label(""));
-        info1.getChildren().add(new Label("Sovellus ei osaa vielä päivittää graafista käyttöliittymää,"));
-        info1.getChildren().add(new Label("joten varsinainen teksti printtaantuu outputtiin."));
-        info1.getChildren().add(new Label(""));
-        asettelu.setCenter(info1);
+        asettelu.setLeft(new Label("vasen laita"));
+        asettelu.setCenter(new Label("keskikohta"));
 
         Scene nakyma = new Scene(asettelu);
 
@@ -94,13 +86,22 @@ public class main extends Application {
         ikkuna.show();
         
     }
+    
+    
+    //nukutaan, purkkaa
+    public void sleepTime(int time) {
+         try {
+            Thread.sleep(time*1000);
+        } catch(InterruptedException ex) {
+            Thread.currentThread().interrupt();
+        }   
+    }
 
     public static void main(String[] args) {
         launch(main.class);
 
     }
+        
 }
-//    public static void main(String[] args) {
-//        NormalGame testi = new NormalGame();
-//    }
-    
+
+
