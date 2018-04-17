@@ -95,8 +95,8 @@ public class MuistipeliUi extends Application {
         
         Button newGameButton = new Button("New Game");
         newGameButton.setOnAction((event) -> {
-            showSymbolsPane.setCenter(new Label("Kierros " + Integer.toString(normalgame.getRoundNumber()) + "!   Valmistaudu!"));
             normalgame = new NormalGame();
+            showSymbolsPane.setCenter(new Label("Kierros " + Integer.toString(normalgame.getRoundNumber()) + "!   Valmistaudu!"));
             primaryStage.setScene(showSymbolsScene);
             
             
