@@ -24,7 +24,16 @@ public class SymbolChain {
             // this.chain.add(4);   //placeholder
             Random rand = new Random();
             int randomNmbr = rand.nextInt(4) + 1;
-            this.chain.add(randomNmbr);
+            
+            // katsotaan, onko viimeisin numero sama kuin edellinen, jos on niin arvotaan uusi numero
+            if (this.chain.size() != 0) {
+                if (randomNmbr != this.chain.get(this.chain.size() - 1)) {
+                    this.chain.add(randomNmbr);
+                }
+            } else {
+                this.chain.add(randomNmbr);
+            }
+            
         }
         
         
