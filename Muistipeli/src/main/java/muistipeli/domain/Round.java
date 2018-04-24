@@ -1,5 +1,5 @@
 
-package domain;
+package muistipeli.domain;
 
 
 // Round käsittelee pelin yhtä kierrosta: Round pitää kirjaa siitä, mitä symbolia kulloinkin käsitellään

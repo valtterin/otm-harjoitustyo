@@ -1,8 +1,8 @@
-package domain;
+package muistipeli.domain;
 
 
 
-import domain.NormalGame;
+import muistipeli.domain.NormalGame;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

@@ -1,4 +1,4 @@
-package domain;
+package muistipeli.domain;
 
 import java.util.ArrayList;
 import java.util.Random;

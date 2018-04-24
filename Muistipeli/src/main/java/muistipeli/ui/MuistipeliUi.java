@@ -1,4 +1,4 @@
-package ui;
+package muistipeli.ui;
 // import static javafx.application.Application.launch;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -9,7 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.application.Platform;
-import domain.NormalGame;
+import muistipeli.domain.NormalGame;
 import javafx.scene.Group; 
 import javafx.scene.paint.Color; 
 import javafx.scene.shape.*; 

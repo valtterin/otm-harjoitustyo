@@ -1,4 +1,4 @@
-package domain;
+package muistipeli.domain;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -6,7 +6,7 @@ package domain;
  * and open the template in the editor.
  */
 
-import domain.Round;
+import muistipeli.domain.Round;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

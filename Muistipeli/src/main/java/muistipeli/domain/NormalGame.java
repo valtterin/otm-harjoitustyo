@@ -1,5 +1,5 @@
 
-package domain;
+package muistipeli.domain;
 
 // import java.util.concurrent.TimeUnit;
 
