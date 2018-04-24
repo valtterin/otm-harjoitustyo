@@ -59,7 +59,7 @@
                 <version>0.8.0</version>
                 <configuration>
                     <excludes>
-                        <exclude>muistipeli.ui/*</exclude>
+                        <exclude>muistipeli/ui/*</exclude>
                     </excludes>
                 </configuration> 
                 <executions>
