@@ -8,5 +8,7 @@
 16.4.	(4 tuntia) Sovelluksen rakenteen järkeistäminen (normalgame.java ja tälle testit)
 17.4.   (3 tuntia) Graafisen käyttöliittymän luontiin tutustumista
         (1 tunti)  Checkstylen käyttöönotto
+22.4.	(4 tuntia) Graafisen käyttöliittymän päivitystä
+24.4.	(4 tuntia) Graafisen käyttöliittymän päivitystä ja toisteisen koodin eliminointia
 
-Yhteensä: 20 tuntia
+Yhteensä: 28 tuntia
