@@ -2,7 +2,7 @@ package muistipeli.domain;
 
 
 
-import muistipeli.domain.NormalGame;
+import muistipeli.domain.*;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -11,13 +11,13 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 
-public class NormalGameTest {
+public class GameTest {
     
-    NormalGame test;
+    Game test;
     
     @Before
     public void setUp() {
-        test = new NormalGame();
+        test = new Game();
     }
     
     @Test

@@ -2,20 +2,31 @@
 package muistipeli.domain;
 
 
-// Round käsittelee pelin yhtä kierrosta: Round pitää kirjaa siitä, mitä symbolia kulloinkin käsitellään
+/**
+ * Round luokka vastaa yhden kierroksen pelaamisesta.
+ */
+
 public class Round {
     private int marker;   // marker on ketjun kohdassa, jota kulloinkin tarkastellaan
     private SymbolChain chain;
     
-    // uusi kierros: asettaa markkerin nollaan ja luo symboliketjun jonka pituus vastaa kierroksen numeroa
-    public Round(int roundNmbr) {
+    /**
+     * Konstruktori alustaa kierroksen luomalla kierroksen 
+     * numeroa vastaan pituisen ketjun symboleita.
+     * 
+     * @param   roundNumber   Kulloisen kierroksen numero, määrittää tarvittavan kokoisen koon symboliketjulle
+     */   
+    public Round(int roundNumber) {
         this.marker = 0;
-        this.chain = new SymbolChain(roundNmbr);
+        this.chain = new SymbolChain(roundNumber);
     }
     
-    // palauttaa markkerin osoittaman symbolin ketjusta
+    /**
+     * Metodi palauttaa markkerin osoittaman, eli kulloisen, numeron ketjusta.
+     * 
+     * @return Tarkasteltavan paikan symboli, tai 0 jos symbolia ei ole.
+     */ 
     public int currentSymbol() {        
-        // jos marker on liian iso, palautetaan nolla
         // markkerin ei pitäisi ikinä olla liian suuri, mutta tämä nyt kuitenkin varmistuksena
         if (this.marker >= this.chain.getSize()) {
             return 0;
@@ -24,8 +35,13 @@ public class Round {
     }
     
     
-    // vertaa annettua symbolia sen hetkiseen symboliin, palauttaa true jos samat
-    // voisi ehkä siirtää johkin toiseen classiin
+    /**
+     * Metodi vertaa parametrina annettua symbolia tämän hetkiseen symboliin.
+     * 
+     * @param   symbol   Vertailtava symboli
+     * 
+     * @return vastaako parametrin symboli todellista symbolia
+     */ 
     public boolean compare(int symbol) {
         if (symbol == this.currentSymbol()) {
             return true;
@@ -34,7 +50,12 @@ public class Round {
     }
     
     
-    // liikuttaa markkeria yhden eteenpäin, mikäli listan koko sallii
+    /**
+     * Metodi liikuttaa markeria yhden eteenpäin, mikäli marker ei ole jo
+     * ketjun päädyssä.
+     * 
+     * @return onnistuiko liikutus
+     */ 
     public boolean moveMarker() {
         if (this.marker < (this.chain.getSize() - 1)) {
             this.marker = this.marker + 1;
@@ -48,14 +69,14 @@ public class Round {
     }
     
     
-    
-    
-    
-    //////////////////////////////////
-    // muita metodeita tulevan varalta:
-    
-    // asettaa markkerin haluttuun kohtaan ja palauttaa true
-    // jos kohta ei ole validi, palautetaan false
+    /**
+     * Metodi asettaa markerin haluttuun kohtaan, ja palauttaa true, 
+     * mikäli asetus onnistuu.
+     * 
+     * @param   number   Markerin uusi haluttu kohta
+     * 
+     * @return onnistuiko markerin asetus
+     */ 
     public boolean setMarker(int number) {
         if (number < 0) {
             return false;
@@ -67,10 +88,14 @@ public class Round {
         return true;
     }
     
-    // aloittaa uuden kierroksen, mutta säilyttää nykyisen symboliketjun
-    // markkeri laitetaan nollaan ja symboliketjun pituutta lisätään yhdellä
+    /**
+     * Metodi alustaa uuden kierroksen lisäämällä vanhan symboliketjun
+     * loppuun uuden symbolin.
+     * 
+     * @r
+     */
     public void nextRound() {
-        this.marker = 0;
+        // this.marker = 0;
         this.chain.addSymbol();
     }
     

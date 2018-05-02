@@ -4,28 +4,33 @@ import java.util.ArrayList;
 import java.util.Random;
 
 
-// SymbolChain luo halutun pituisen ketjun numeroita (eli pelimme tapauksessa "symboleita")
-
+/**
+ * SymbolChain luokka luo halutun pituisen ketjun symboleita (numeroita)
+ */
 public class SymbolChain {
     
     private ArrayList<Integer> chain;
     
-    // voitaisiin lisätä parametri int complexity, jolla päätetään kuinka montaa mahdollista symbolia ketjusta löytyy
+    /**
+     * Konstruktori luo halutun kokoisen listan, 
+     * ja täyttää sen satunnaisilla numeroilla väliltä 1-4.
+     * 
+     * Sama numero ei voi esiintyä listassa peräkkäisillä sijoilla.
+     * 
+     * @param   length   Listan haluttu koko
+     */
     public SymbolChain(int length) {
         
         this.chain = new ArrayList<>();
         
-        // while lauseella täytetään listaan satunnaisia numeroita("symboleita") väliltä 1-4 parametrin length verran
         while (true) {
             if (this.chain.size() == length) {
                 break;
             }
-            // tähän toiminnallisuus satunnaisten numeroiden arpomiseen ja lisäämiseen listaan
-            // this.chain.add(4);   //placeholder
+
             Random rand = new Random();
             int randomNmbr = rand.nextInt(4) + 1;
             
-            // katsotaan, onko viimeisin numero sama kuin edellinen, jos on niin arvotaan uusi numero
             if (this.chain.size() != 0) {
                 if (randomNmbr != this.chain.get(this.chain.size() - 1)) {
                     this.chain.add(randomNmbr);
@@ -40,7 +45,13 @@ public class SymbolChain {
     }
     
     
-    // getSymbol palauttaa listasta X:n symbolin/numeron, jos X on väärältä väliltä metodi palauttaa nollan
+    /**
+     * Metodi palauttaa ketjusta parametrina annetun paikan symbolin numeron.
+     *
+     * @param   number   Tiedusteltavan symbolin paikka ketjussa
+     * 
+     * @return symbolin numero
+     */
     public int getSymbol(int number) {
         
         // varmistetaan, että annettu parametri number on oikealta väliltä
@@ -56,17 +67,37 @@ public class SymbolChain {
     }
     
     
-    // lisää yhden uuden symbolin/numeron listan loppuun
+    /**
+     * Metodi lisää yhden uuden symbolin ketjun loppuun.
+     */
     public void addSymbol() {
         // tähän toiminnallisuus satunnaisten numeroiden arpomiseen ja lisäämiseen listaan
         // this.chain.add(4);   //placeholder
-        Random rand = new Random();
-        int randomNmbr = rand.nextInt(4) + 1;
-        this.chain.add(randomNmbr);
+        while (true) {
+            // tähän toiminnallisuus satunnaisten numeroiden arpomiseen ja lisäämiseen listaan
+            // this.chain.add(4);   //placeholder
+            Random rand = new Random();
+            int randomNmbr = rand.nextInt(4) + 1;
+            
+            // katsotaan, onko viimeisin numero sama kuin edellinen, jos on niin arvotaan uusi numero
+            if (this.chain.size() != 0) {
+                if (randomNmbr != this.chain.get(this.chain.size() - 1)) {
+                    this.chain.add(randomNmbr);
+                    break;
+                }
+            } else {
+                this.chain.add(randomNmbr);
+            }
+            
+        }
     }
     
     
-    // palauttaa symbolilistan koon
+    /**
+     * Metodi palauttaa ketjun koon.
+     * 
+     * @return ketjun koko
+     */
     public int getSize() {
         return this.chain.size();
     }
