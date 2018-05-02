@@ -1,9 +1,9 @@
 # Käyttöohje
 
-Lataa tiedosto [muistipeli.jar](https://github.com/mluukkai/OtmTodoApp/releases/tag/0.1). Ohjelma käynnistetään komennolla 
+Lataa tiedosto [MuistipeliV2.jar]([Release 2 (viikko 6)](https://github.com/valtterin/otm-harjoitustyo/releases/tag/viikko6Final)). Ohjelma käynnistetään komennolla 
 
 ```
-java -jar muistipeli.jar
+java -jar MuistipeliV2.jar
 ```
 
 ## Kuvaus
