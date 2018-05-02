@@ -1,5 +1,9 @@
 package muistipeli.ui;
 // import static javafx.application.Application.launch;
+import muistipeli.logics.ReverseGame;
+import muistipeli.logics.BlindGame;
+import muistipeli.logics.Game;
+import muistipeli.logics.EasyGame;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -9,7 +13,6 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.application.Platform;
-import muistipeli.domain.*;
 import javafx.scene.Group; 
 import javafx.scene.paint.Color; 
 import javafx.scene.shape.*; 

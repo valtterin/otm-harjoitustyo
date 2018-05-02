@@ -1,5 +1,5 @@
 
-package muistipeli.domain;
+package muistipeli.logics;
 
 /**
  * BlindGame vastaa yhden "sokko" pelin pelaamisesta. 

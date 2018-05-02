@@ -1,5 +1,5 @@
 
-package muistipeli.domain;
+package muistipeli.logics;
 
 
 public class ReverseGame extends Game {

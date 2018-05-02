@@ -1,5 +1,5 @@
 
-package muistipeli.domain;
+package muistipeli.logics;
 
 
 /**
@@ -91,8 +91,6 @@ public class Round {
     /**
      * Metodi alustaa uuden kierroksen lisäämällä vanhan symboliketjun
      * loppuun uuden symbolin.
-     * 
-     * @r
      */
     public void nextRound() {
         // this.marker = 0;

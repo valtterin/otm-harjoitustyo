@@ -1,8 +1,7 @@
-package muistipeli.domain;
+package muistipeli.logics;
 
 
 
-import muistipeli.domain.SymbolChain;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

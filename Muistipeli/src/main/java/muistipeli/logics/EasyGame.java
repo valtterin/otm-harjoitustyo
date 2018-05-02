@@ -1,4 +1,4 @@
-package muistipeli.domain;
+package muistipeli.logics;
 
 /**
  * EasyGame vastaa yhden "helpon" pelin pelaamisesta, 

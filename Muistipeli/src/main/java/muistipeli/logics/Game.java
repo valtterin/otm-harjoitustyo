@@ -1,5 +1,5 @@
 
-package muistipeli.domain;
+package muistipeli.logics;
 
 /**
  * Game vastaa yhden normaalin pelin pelaamisesta, 
