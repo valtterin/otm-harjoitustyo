@@ -3,7 +3,7 @@
 Lataa tiedosto [muistipeli.jar](https://github.com/mluukkai/OtmTodoApp/releases/tag/0.1). Ohjelma käynnistetään komennolla 
 
 ```
-java -jar todoapp.jar
+java -jar muistipeli.jar
 ```
 
 ## Kuvaus
