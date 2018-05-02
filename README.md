@@ -12,11 +12,15 @@ Peli näyttää pelaajalle ketjun symboleita. Pelaajan tulee muistaa näkemäns�
 
 ## Dokumentaatio
 
+[käyttöohje](https://github.com/valtterin/otm-harjoitustyo/blob/master/Dokumentaatio/kayttoohje.md)
+
 [vaatimusmäärittely](https://github.com/valtterin/otm-harjoitustyo/blob/master/Dokumentaatio/vaatimusmaarittely.md)
 
 [työaikakirjanpito](https://github.com/valtterin/otm-harjoitustyo/blob/master/Dokumentaatio/tyoaikakirjanpito.txt)
 
 [arkkitehtuuri](https://github.com/valtterin/otm-harjoitustyo/blob/master/Dokumentaatio/arkkitehtuuri.md)
+
+https://github.com/valtterin/otm-harjoitustyo/blob/master/Dokumentaatio/kayttoohje.md
 
 
 ## Komennot
