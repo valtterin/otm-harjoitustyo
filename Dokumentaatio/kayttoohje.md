@@ -5,10 +5,14 @@ Lataa tiedosto [muistipeli.jar](https://github.com/mluukkai/OtmTodoApp/releases/
 ```
 java -jar todoapp.jar
 ```
+![kuvio](https://github.com/valtterin/otm-harjoitustyo/blob/master/Dokumentaatio/luokkapakkauskaavio-page-001.jpg)
 
 ## Kuvaus
 
 Ohjelma on peli, joka testaa pelaajan muistia. Perus-pelissä käyttäjälle näytetään kuvio kerrallaan ketju kuvioita. Käyttäjän nähtyä kuviot, tämän tulee muistaa näkemänsä kuviot oikeassa järjestyksessä.
+
+![painikkeet](https://github.com/valtterin/otm-harjoitustyo/blob/master/Dokumentaatio/luokkapakkauskaavio-page-001.jpg)
+
 
 Pelaajan on mahdollista valita pelinsä neljästä eri pelimuodosta:
 
