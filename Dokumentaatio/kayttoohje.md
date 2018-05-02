@@ -13,7 +13,7 @@ Ohjelma on peli, joka testaa pelaajan muistia. Perus-pelissä käyttäjälle nä
 Pelaajan on mahdollista valita pelinsä neljästä eri pelimuodosta:
 
 - Normal game - 
-Kuvio-ketju koostuu neljästä erityyppisestä kuviosta. Pelaajan muistettua kierroksen kuviot oikein, pelaajalle näytetään täysin uusi kuvio ketju, jonka pituus on edellistä yhdempi isompi.
+Kuvio-ketju koostuu neljästä erityyppisestä kuviosta. Pelaajan muistettua kierroksen kuviot oikein, pelaajalle näytetään täysin uusi kuvio-ketju, jonka pituus on edellistä yhdempi isompi.
 
 - Easy game - 
 Muuten kuin Normal game, paitsi muistettava kuvio-ketju säilyy läpi kierrosten samana. Vain ketjun pituus kasvaa kunkin kierroksen päätteeksi yhdellä!
