@@ -10,5 +10,7 @@
         (1 tunti)  Checkstylen käyttöönotto
 22.4.	(4 tuntia) Graafisen käyttöliittymän päivitystä
 24.4.	(4 tuntia) Graafisen käyttöliittymän päivitystä ja toisteisen koodin eliminointia
+30.4    (3 tuntia) Uusia pelimuotoja
+2.5.	(3 tuntia) JavaDocin käyttöönotto, koodin siivousta ja dokumentointia
 
-Yhteensä: 28 tuntia
+Yhteensä: 34 tuntia
