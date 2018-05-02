@@ -5,6 +5,10 @@ Peli n채ytt채채 pelaajalle ketjun symboleita. Pelaajan tulee muistaa n채kem채ns�
 
 [Release 1 (viikko 5)](https://github.com/valtterin/otm-harjoitustyo/releases/tag/viikko5Final)
 
+[Release 2 (viikko 6)](https://github.com/valtterin/otm-harjoitustyo/releases/tag/vk6)
+
+
+
 
 ## Dokumentaatio
 
