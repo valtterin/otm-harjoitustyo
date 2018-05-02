@@ -10,9 +10,7 @@ java -jar todoapp.jar
 
 Ohjelma on peli, joka testaa pelaajan muistia. Perus-pelissä käyttäjälle näytetään kuvio kerrallaan ketju kuvioita. Käyttäjän nähtyä kuviot, tämän tulee muistaa näkemänsä kuviot oikeassa järjestyksessä.
 
-
-:-------------------------:|:-------------------------:
-![](https://raw.githubusercontent.com/valtterin/otm-harjoitustyo/master/Dokumentaatio/ohje1.2.png)  |  ![](https://raw.githubusercontent.com/valtterin/otm-harjoitustyo/master/Dokumentaatio/ohje2.png)
+![](https://raw.githubusercontent.com/valtterin/otm-harjoitustyo/master/Dokumentaatio/ohje1.2.png) ![](https://raw.githubusercontent.com/valtterin/otm-harjoitustyo/master/Dokumentaatio/ohje2.png)
 
 
 
