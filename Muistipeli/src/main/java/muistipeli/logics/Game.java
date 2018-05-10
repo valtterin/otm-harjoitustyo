@@ -14,17 +14,37 @@ public class Game {
     public Round roundX;
     public boolean roundPassed;
     public int symbolNumber;
+    public int difficulty;
+    public boolean ranked;
+    public int startingRound;
+    public int startingDifficulty;
+    // public int defay;
 
 
     /**
-     * Konstruktori alustaa pelin
-     */    
-    public Game() {
-        this.roundNumber = 1;
+     * Konstruktori alustaa pelin.
+     * 
+     * @param   chosenDifficulty   Kuinka monella symbolilla symboliketju kasvaa kunkin 
+     * kierroksen alussa, pelaajan valitsema parametri
+     * @param   chosenStart   Aloituskierroksen numero, pelaajan valitsema
+     */   
+    public Game(int chosenDifficulty, int chosenStart) {
+        this.roundNumber = chosenStart;
+        this.startingRound = chosenStart;
+        this.difficulty = chosenDifficulty;
+        this.startingDifficulty = chosenDifficulty;
+        this.configure(chosenDifficulty, chosenStart);
+//        this.roundNumber = 1;
+//        this.difficulty = 1;
+//        this.roundX = new Round(this.roundNumber*this.difficulty);
+        if (this.difficulty == 0) {
+            this.difficulty = 1;
+        }
         this.score = 0;
-        this.roundX = new Round(this.roundNumber);   // oma metodi myös näille
         this.roundPassed = false;
         this.symbolNumber = 0;
+        this.ranked = true;
+        
     }
     
     
@@ -35,7 +55,7 @@ public class Game {
      * @return ketjun seuraava symboli
      */
     public int nextSymbol() {
-        if (this.roundNumber <= this.symbolNumber) {
+        if (this.roundNumber*this.difficulty <= this.symbolNumber) {
             this.symbolNumber = 0;
             this.roundX.setMarker(0);
             return 0;
@@ -64,7 +84,7 @@ public class Game {
             return false;
         }
         // jos pelaaja sai kaikki numerot oikein, poistutaan loopista
-        if (this.symbolNumber >= this.roundNumber) {
+        if (this.symbolNumber >= this.roundNumber*this.difficulty) {
             this.roundPassed = true;
         }
         return true;
@@ -79,6 +99,37 @@ public class Game {
         return this.score;
     }
     
+
+    
+    /**
+     * Metodia käytetään pelin konfigurointiin parametrina annettujen aloitusasetuksien mukaan.
+     * 
+     * @param   chosenDifficulty   Kuinka monella symbolilla symboliketju kasvaa kunkin 
+     * kierroksen alussa, pelaajan valitsema parametri
+     * @param   chosenStart   Aloituskierroksen numero, pelaajan valitsema
+     * 
+     * @return onnistuiko konfigurointi
+     */   
+    private boolean configure(int chosenDifficulty, int chosenStart) {
+        if (chosenDifficulty > 0 && chosenDifficulty < 100 && chosenStart> 0 && chosenStart < 100) {
+            this.roundX = new Round(this.roundNumber*this.difficulty);
+            this.ranked = false;
+            return true;            
+        }
+        if (chosenDifficulty == 0 && chosenStart> 0 && chosenStart < 100) {
+            this.roundX = new Round(this.roundNumber);
+            this.ranked = false;
+            return true;            
+        }
+        return false;
+    } 
+    
+    
+    
+//     * @param   chosenDelay   Kuinka nopeasti pelaajalle näytetään symboliketjun
+//     * symboleita, pelaajan valitsema parametri, sekunnin kymmenesosissa
+    
+    
     /**
      * Metodi tarkastaa, onko pelaaja läpäissyt kierroksen. 
      * Mikäli on, metodi alustaa seuraavan kierroksen.
@@ -88,9 +139,13 @@ public class Game {
     public boolean nextRound() {
         if (this.roundPassed) {
             this.roundPassed = false;
-            this.symbolNumber = 0;  // lähdetään liikkeelle ensimmäisestä symbolista
+            this.symbolNumber = 0;
+            if (this.startingDifficulty == 0) {  // jos difficulty 0, niin pitäydytään samassa rundissa
+                this.roundX = new Round(this.startingRound);
+                return true;
+            }
             this.roundNumber++;
-            this.roundX = new Round(this.roundNumber);
+            this.roundX = new Round(this.roundNumber*this.difficulty);
             return true;
         }
         return false;

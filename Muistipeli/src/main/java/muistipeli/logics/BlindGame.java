@@ -9,8 +9,8 @@ package muistipeli.logics;
 
 public class BlindGame extends Game {
     
-    public BlindGame() {
-        super();
+    public BlindGame(int chosenDifficulty, int chosenStart) {
+        super(chosenDifficulty, chosenStart);
     }
 
     
@@ -22,7 +22,7 @@ public class BlindGame extends Game {
      */ 
     @Override
     public int nextSymbol() {
-        if (this.roundNumber <= this.symbolNumber) {
+        if (this.roundNumber*this.difficulty <= this.symbolNumber) {
             this.symbolNumber = 0;
             this.roundX.setMarker(0);
             return 0;
@@ -45,8 +45,11 @@ public class BlindGame extends Game {
     public boolean nextRound() {
         if (this.roundPassed) {
             this.roundPassed = false;
+            if (this.startingDifficulty == 0) {  // jos difficulty 0, niin pitäydytään samassa rundissa
+                return true;
+            }
             this.roundNumber++;
-            this.roundX.nextRound();
+            this.roundX.nextRound(this.difficulty);
             this.roundX.moveMarker();
             return true;
         }

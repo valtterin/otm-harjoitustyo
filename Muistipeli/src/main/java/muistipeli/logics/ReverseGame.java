@@ -4,8 +4,8 @@ package muistipeli.logics;
 
 public class ReverseGame extends Game {
     
-    public ReverseGame() {
-        super();
+    public ReverseGame(int chosenDifficulty, int chosenStart) {
+        super(chosenDifficulty, chosenStart);
     }
     
 
@@ -17,7 +17,7 @@ public class ReverseGame extends Game {
      */    
     @Override
     public int nextSymbol() {
-        if (this.roundNumber <= this.symbolNumber) {
+        if (this.roundNumber*this.difficulty <= this.symbolNumber) {
             return 0;
         }
         

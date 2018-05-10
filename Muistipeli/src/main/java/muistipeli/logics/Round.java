@@ -90,11 +90,17 @@ public class Round {
     
     /**
      * Metodi alustaa uuden kierroksen lisäämällä vanhan symboliketjun
-     * loppuun uuden symbolin.
+     * loppuun parametrin määrittämän määrän symboleita.
+     * @param   number   uusien symboleiden lukumäärä
      */
-    public void nextRound() {
+    public void nextRound(int number) {
         // this.marker = 0;
-        this.chain.addSymbol();
+        int i = 0;
+        while (i<number) {
+            this.chain.addSymbol();
+            i++;
+        }
+        
     }
     
 }
