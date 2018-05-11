@@ -18,7 +18,6 @@ public class Game {
     public boolean ranked;
     public int startingRound;
     public int startingDifficulty;
-    // public int defay;
 
 
     /**
@@ -34,9 +33,6 @@ public class Game {
         this.difficulty = chosenDifficulty;
         this.startingDifficulty = chosenDifficulty;
         this.configure(chosenDifficulty, chosenStart);
-//        this.roundNumber = 1;
-//        this.difficulty = 1;
-//        this.roundX = new Round(this.roundNumber*this.difficulty);
         if (this.difficulty == 0) {
             this.difficulty = 1;
         }
@@ -108,7 +104,7 @@ public class Game {
      * kierroksen alussa, pelaajan valitsema parametri
      * @param   chosenStart   Aloituskierroksen numero, pelaajan valitsema
      * 
-     * @return onnistuiko konfigurointi
+     * @return boolean, onnistuiko konfigurointi
      */   
     private boolean configure(int chosenDifficulty, int chosenStart) {
         if (chosenDifficulty > 0 && chosenDifficulty < 100 && chosenStart> 0 && chosenStart < 100) {
@@ -134,7 +130,7 @@ public class Game {
      * Metodi tarkastaa, onko pelaaja läpäissyt kierroksen. 
      * Mikäli on, metodi alustaa seuraavan kierroksen.
      * 
-     * @return siirrytäänkö uudelle kierrokselle
+     * @return boolean, siirrytäänkö uudelle kierrokselle
      */       
     public boolean nextRound() {
         if (this.roundPassed) {

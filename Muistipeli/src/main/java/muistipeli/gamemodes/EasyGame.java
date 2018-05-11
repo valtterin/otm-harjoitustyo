@@ -1,4 +1,6 @@
-package muistipeli.logics;
+package muistipeli.gamemodes;
+
+import muistipeli.logics.Game;
 
 /**
  * EasyGame vastaa yhden "helpon" pelin pelaamisesta, 

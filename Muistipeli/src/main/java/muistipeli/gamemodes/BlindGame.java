@@ -1,5 +1,7 @@
 
-package muistipeli.logics;
+package muistipeli.gamemodes;
+
+import muistipeli.logics.Game;
 
 /**
  * BlindGame vastaa yhden "sokko" pelin pelaamisesta. 

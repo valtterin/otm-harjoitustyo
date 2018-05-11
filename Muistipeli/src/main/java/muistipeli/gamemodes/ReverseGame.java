@@ -1,5 +1,7 @@
 
-package muistipeli.logics;
+package muistipeli.gamemodes;
+
+import muistipeli.logics.Game;
 
 
 public class ReverseGame extends Game {

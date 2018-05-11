@@ -1,9 +1,9 @@
 package muistipeli.ui;
 // import static javafx.application.Application.launch;
-import muistipeli.logics.ReverseGame;
-import muistipeli.logics.BlindGame;
+import muistipeli.gamemodes.ReverseGame;
+import muistipeli.gamemodes.BlindGame;
 import muistipeli.logics.Game;
-import muistipeli.logics.EasyGame;
+import muistipeli.gamemodes.EasyGame;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -18,6 +18,7 @@ import javafx.scene.Group;
 import javafx.scene.paint.Color; 
 import javafx.scene.shape.*; 
 import javafx.geometry.Pos;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -50,7 +51,9 @@ public class MuistipeliUi extends Application {
     Scene symbolThreeScene;
     Scene symbolFourScene;
     Scene optionsScene;
+    Scene HighScoresScene;
     Text scoring;
+    Text endgameText;
     BorderPane askSymbolsPane;
     Stage thestage;
     BorderPane showSymbolsPane;
@@ -61,11 +64,95 @@ public class MuistipeliUi extends Application {
     
         
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) throws Exception{
+        
+        Database database = new Database("jdbc:sqlite:scores.db");
+        ScoreDao scoredao = new ScoreDao(database);
+        
         
         
         
         thestage = primaryStage;
+        
+        
+        // end game scene
+        
+        
+        TextField playerNick = new TextField("nimimerkkisi");
+        playerNick.setPromptText("nimimerkkisi");
+        playerNick.setMaxWidth(150);
+        
+        Text endgameText1 = new Text("Väärin! Peli loppui!");
+        endgameText = new Text("Pisteesi olivat: " + newGame.getScore());
+        Text endgameText3 = new Text("Haluatko tallentaa pisteesi?");
+        
+        Button backToMenu = new Button("Peruuta");
+        backToMenu.setStyle("-fx-font-size: 1.2em; -fx-text-fill: #8B4513; -fx-background-color: #FFF8DC; -fx-border-color: #DEB887; -fx-border-width: 1px;");
+        backToMenu.setMinWidth(25);
+        backToMenu.setOnAction((event) -> {
+            primaryStage.setScene(newGameScene);
+        });
+        
+        Button saveScore = new Button("Tallenna");
+        saveScore.setStyle("-fx-font-size: 1.2em; -fx-text-fill: #8B4513; -fx-background-color: #FFF8DC; -fx-border-color: #DEB887; -fx-border-width: 1px;");
+        saveScore.setOnAction((event) -> {
+            String nick = playerNick.getText();
+            if (nick.length() == 0) {
+                System.out.println("liian lyhyt");
+            }
+            if (nick.length() > 10) {
+                System.out.println("liian pitkä");
+            }
+            
+            if (nick.length() > 0 && nick.length() <= 10) {
+                int i = 0;
+                boolean validNick = true;
+                while (i < nick.length()) {
+                    if (!Character.isLetter(nick.charAt(i))) {
+                        validNick = false;
+                    }
+                    i++;
+                }
+                if (validNick) {
+                    primaryStage.setScene(newGameScene);
+                } else {
+                    System.out.println("Invalid nick");
+                    // insert functionality for updating text, need to rework whole box
+                }
+
+            }
+            
+            
+        });
+        
+
+        
+        BorderPane endgamePane = new BorderPane();
+        VBox endgame = new VBox();
+        
+        endgame.getChildren().add(endgameText1);
+        endgame.getChildren().add(endgameText);
+        endgame.getChildren().add(new Text(""));
+        endgame.getChildren().add(endgameText3);
+        endgame.getChildren().add(new Text(""));
+        endgame.getChildren().add(playerNick);
+        endgame.getChildren().add(new Text(""));
+        
+        HBox endgameButtons = new HBox();
+        endgameButtons.getChildren().add(backToMenu);
+        endgameButtons.getChildren().add(saveScore);
+        endgameButtons.setSpacing(25);
+        endgameButtons.setAlignment(Pos.CENTER);
+
+         endgame.getChildren().add(endgameButtons);
+        
+        endgame.setAlignment(Pos.CENTER);
+        
+        endgamePane.setCenter(endgame);
+        endgamePane.setStyle("-fx-background-color: #FFFFF0;");
+        endGameScene = new Scene(endgamePane, 285, 250);
+        
+        
         
         // symbol one to four scenes
         
@@ -105,37 +192,6 @@ public class MuistipeliUi extends Application {
         Group root3 = new Group(yellowCircleBig); 
         symbolThreeScene = new Scene(root3, 285, 250, Color.IVORY);  
         
-//      // tähden alkeet
-//        Polygon polygon2 = new Polygon();
-//        polygon2.getPoints().addAll(new Double[]{
-//            184.9, 167.4,
-//            90.5, 155.0,
-//            142.5,  65.0 });
-//
-//        //Setting color to the circle 
-//        polygon2.setFill(Color.YELLOW);    
-//
-//        //Setting the stroke width 
-//        polygon2.setStrokeWidth(2); 
-//
-//        //Setting color to the stroke  
-//        polygon2.setStroke(Color.YELLOW);
-//        
-//        Polygon polygon3 = new Polygon();
-//        polygon3.getPoints().addAll(new Double[]{
-//            202.5, 125.0,
-//            90.5, 95.0,
-//            194.5, 95.0 });
-//
-//        //Setting color to the circle 
-//        polygon3.setFill(Color.YELLOW);    
-//
-//        //Setting the stroke width 
-//        polygon3.setStrokeWidth(2); 
-//
-//        //Setting color to the stroke  
-//        polygon3.setStroke(Color.YELLOW);
-        
         Rectangle blueSquareBig = new Rectangle();
         blueSquareBig.setX(82.5);
         blueSquareBig.setY(70);
@@ -150,12 +206,8 @@ public class MuistipeliUi extends Application {
         Group root4 = new Group(blueSquareBig); 
         symbolFourScene = new Scene(root4, 285, 250, Color.IVORY);  
         
-
-
+        
         // optionsScene defined
-        
- 
-        
         BorderPane optionsPane = new BorderPane();
         optionsPane.setStyle("-fx-background-color: #FFFFF0;");
         
@@ -163,8 +215,6 @@ public class MuistipeliUi extends Application {
         optionsGrid.setPadding(new Insets(20, 20, 20, 20));
         optionsGrid.setVgap(10);
         optionsGrid.setHgap(10);
-        
-               
 
         
         Text startingRoundLabel = new Text("Aloituskierros:");
@@ -515,34 +565,12 @@ public class MuistipeliUi extends Application {
         titleText.setFont(Font.font ("Verdana", FontWeight.BOLD, 35));
         titleText.setFill(Color.SADDLEBROWN);
 
-//        newGamePane.setCenter(gameButtons);
         gameButtons.getChildren().add(titleText);
         gameButtons.getChildren().add(gameButtonsGrid);
         gameButtons.getChildren().add(optionsButton);
         gameButtons.getChildren().add(scoresButton);
         newGamePane.setCenter(gameButtons);
         
-//        Circle greenCircleSmall2 = new Circle();    
-//        greenCircleSmall2.setCenterX(150.0f); 
-//        greenCircleSmall2.setCenterY(150.0f); 
-//        greenCircleSmall2.setRadius(20.0f); 
-//        greenCircleSmall2.setFill(Color.BLACK);    
-//        greenCircleSmall2.setStrokeWidth(1);  
-//        greenCircleSmall2.setStroke(Color.BLACK);
-//        
-//        
-//        VBox blackCircle = new VBox();
-//
-//        blackCircle.getChildren().add(greenCircleSmall2);
-//        blackCircle.setAlignment(Pos.BOTTOM_LEFT);
-//        
-//        newGamePane.setLeft(blackCircle);
-        
-        
-
-        //titleText.setAlignment(Pos.CENTER);
-        
-        // newGamePane.setTop(titleText);
         newGamePane.setStyle("-fx-background-color: #FFFFF0;");
         newGameScene = new Scene(newGamePane, 285, 260);
 
@@ -680,21 +708,10 @@ public class MuistipeliUi extends Application {
                 }
             } else {
                 showSymbolsPane.setCenter(new Label("Väärin! Peli loppui!   Pisteesi olivat: " + newGame.getScore()));
-                thestage.setScene(showSymbolsScene);
-
-                    Thread thread = new Thread(() -> {
-                        try {
-                            Thread.sleep(5000);
-                        } catch (InterruptedException exc) {
-                            throw new Error("Unexpected interruption", exc);
-                        }
-                        Platform.runLater(() -> thestage.setScene(newGameScene));
-                    });
-                thread.setDaemon(true);
-                thread.start();
+                thestage.setScene(endGameScene);
 
                 scoring.setText("Pisteet: 0");
-                askSymbolsPane.setTop(guessTopPane);
+                askSymbolsPane.setTop(guessTopPane);  // ??
             }
         });
         return buttonX;
@@ -730,7 +747,6 @@ public class MuistipeliUi extends Application {
                     });
                     thread1.setDaemon(true);
                     thread1.start();
-                    // primaryStage.setScene(symbolOneScene);
                 }
                 if (print == 2) {
                     int delay2 = delay1;
@@ -744,7 +760,6 @@ public class MuistipeliUi extends Application {
                     });
                     thread2.setDaemon(true);
                     thread2.start();
-                    // primaryStage.setScene(symbolTwoScene);
                 }
                 if (print == 3) {
                     int delay2 = delay1;
@@ -758,7 +773,6 @@ public class MuistipeliUi extends Application {
                     });
                     thread3.setDaemon(true);
                     thread3.start();
-                    // primaryStage.setScene(symbolThreeScene);
                 }
                 if (print == 4) {
                     int delay2 = delay1;
@@ -772,7 +786,6 @@ public class MuistipeliUi extends Application {
                     });
                     thread4.setDaemon(true);
                     thread4.start();
-                    // primaryStage.setScene(symbolFourScene);
                 }
 
             } else {   // jos print on nolla, niin hypätään seuraavaan vaiheeseen
@@ -794,7 +807,6 @@ public class MuistipeliUi extends Application {
         });
         thread5.setDaemon(true);
         thread5.start();
-        // primaryStage.setScene(guessScene);
     }
     
         
