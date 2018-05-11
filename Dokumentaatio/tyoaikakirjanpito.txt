@@ -12,5 +12,9 @@
 24.4.	(4 tuntia) Graafisen käyttöliittymän päivitystä ja toisteisen koodin eliminointia
 30.4    (3 tuntia) Uusia pelimuotoja
 2.5.	(5 tuntia) JavaDocin käyttöönotto, koodin siivousta ja dokumentointia
+6.5.	(6 tuntia) "Asetukset"-välilehti ja graafisen käyttöliittymän päivitystä
+9.5.	(3 tuntia) Tietokantoihin perehtymistä ja alustavan tietokannan käyttöönotto
+11.5.	(3 tuntia) Tietokannan sulauttaminen käyttöliittymään, "Parhaat pisteet"-välilehti
+	(3 tuntia) Dokumentaation päivitystä
 
-Yhteensä: 36 tuntia
+Yhteensä: 51 tuntia
