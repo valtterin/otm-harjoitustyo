@@ -6,6 +6,8 @@ Pakkaus muistipeli.ui sisältää JavaFX:llä toteutetun käyttöliittymän ja m
 
 ![luokkakaavio](https://github.com/valtterin/otm-harjoitustyo/blob/master/Dokumentaatio/luokkapakkauskaavio-page-001.jpg)
 
+Tämän lisäksi on olemassa pakkaukset muistipeli.gamemodes ja muistipeli.dao. Näistä jälkimmäinen pakkaus pitää sisällään tietokannan hallintaan liittyviä luokkia. Muistipeli.gamemodes pakkaus puolestaan sisältää luokkia, jotka vastaavat erilaisten pelimuotojen pelaamisesta. Kukin näistä luokista perii muistipeli.logics pakkauksesta luokan "Game". Tarkempaa 
+
 
 ## Käyttöliittymä
 
