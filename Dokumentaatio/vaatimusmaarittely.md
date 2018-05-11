@@ -40,7 +40,7 @@ Pelissä on graafinen käyttöliittymä, joka pelin kuluessa näyttää käyttä
 
 - Kattavampi tietokanta ja kattavampi "parhaat pisteet" välilehti
   - tietokantaan voitaisiin tallentaa, millä asetuksilla talletettava pistemäärä ansaittiin
-  - "parhaat pisteet" -välilehteä voitaisiin päivittii listaamaan kunkin pelin 10 parhainta tulosta
+  - "parhaat pisteet" -välilehteä voitaisiin päivittii listaamaan kunkin pelimuodon 10 parhainta tulosta
   - "parhaat pisteet" -välilehdelle hakutoiminto, jolla voitaisiin hakea eri asetuksilla saatuja tuloksia
 
 - Uusia erilaisia variaatioita peruspelistä (ja käyttöliittymään mahdollisuus valita haluamansa variaatio). Esimerkiksi:
