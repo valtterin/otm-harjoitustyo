@@ -7,7 +7,7 @@ Peli n채ytt채채 pelaajalle ketjun symboleita. Pelaajan tulee muistaa n채kem채ns�
 
 [Release 2 (viikko 6)](https://github.com/valtterin/otm-harjoitustyo/releases/tag/viikko6Final)
 
-[Loppupalautus)](https://github.com/valtterin/otm-harjoitustyo/releases/tag/loppupalautus)
+[Loppupalautus](https://github.com/valtterin/otm-harjoitustyo/releases/tag/loppupalautus)
 
 
 
