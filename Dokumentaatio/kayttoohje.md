@@ -46,13 +46,10 @@ Kuvioiden kesto määrittää, kuinka pitkän aikaa kukin kuvio näytetään pel
 - Varoituksen kesto - 
 Varoituksen kesto määrittää, kuinka kauan jokaisen kierroksen alussa näkyvä "Kierros X! Valmistaudu!" -varoitus on näkyvissä pelaajalle.
 
-- Pisteytys - 
-Ohjelman tietokantaan voi tallentaa vain "viralliset" pisteet, eli toisin sanoen "Default" asetuksilla saadut pisteet. Mikäli käyttäjä muuttaa asetuksia, virallinen pisteytys otetaan automaattisesti pois käytöstä. Käyttäjän täytyy painaa "Default"-painiketta saadakseen virallisen pisteytyksen takaisin käyttöön.
-
 - Default -
-Palauttaa asetukset oletusarvoisiksi asetuksiksi. Ottaa virallisen pisteytyksen takaisin käyttöön.
+Palauttaa oletusarvoiset asetukset.
 
 _________
 
-Kunkin pelin päätteeksi pelaajalta kysytään, mikäli hän haluaa tallentaa pisteensä tietokantaan. Pelaajan tulee syöttää nimimerkki, joka koostuu vain kirjaimista, ja on enintään 10 kirjainta pitkä.
+Kunkin pelin päätteeksi pelaajalta kysytään, mikäli hän haluaa tallentaa pisteensä tietokantaan. Pelaajan tulee syöttää nimimerkki, joka koostuu vain kirjaimista, ja on enintään 10 kirjaimen pituinen.
 
