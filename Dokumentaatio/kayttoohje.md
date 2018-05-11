@@ -13,7 +13,7 @@ Ohjelma on peli, joka testaa pelaajan muistia. Perus-pelissä käyttäjälle nä
 ![](https://raw.githubusercontent.com/valtterin/otm-harjoitustyo/master/Dokumentaatio/ohje1.2.png) ![](https://raw.githubusercontent.com/valtterin/otm-harjoitustyo/master/Dokumentaatio/ohje2.png)
 
 
-
+_________
 
 Pelaajan on mahdollista valita pelinsä neljästä eri pelimuodosta:
 
@@ -30,6 +30,7 @@ Muuten kuin Helppo peli, paitsi käyttäjä näkee kunkin kierroksen alussa vain
 - Reverse game - 
 Muuten kuin Normaali peli, paitsi käyttäjän tulee muistaa näkemänsä symbolit päinvastaisessa järjestyksessä!
 
+_________
 
 Pelaajan on myös mahdollista muuttaa pelin asetuksia haluamikseen "Asetukset" -valikosta.
 
@@ -51,5 +52,7 @@ Ohjelman tietokantaan voi tallentaa vain "viralliset" pisteet, eli toisin sanoen
 - Default -
 Palauttaa asetukset oletusarvoisiksi asetuksiksi. Ottaa virallisen pisteytyksen takaisin käyttöön.
 
+_________
 
+Kunkin pelin päätteeksi pelaajalta kysytään, mikäli hän haluaa tallentaa pisteensä tietokantaan. Pelaajan tulee syöttää nimimerkki, joka koostuu vain kirjaimista, ja on enintään 10 kirjainta pitkä.
 
