@@ -15,19 +15,41 @@ Ohjelma on peli, joka testaa pelaajan muistia. Perus-pelissä käyttäjälle nä
 
 
 
-
 Pelaajan on mahdollista valita pelinsä neljästä eri pelimuodosta:
 
-![pelimuodot](https://raw.githubusercontent.com/valtterin/otm-harjoitustyo/master/Dokumentaatio/ohje1.png)
 
-- Normal game - 
+- Normaali - 
 Kuvio-ketju koostuu neljästä erityyppisestä kuviosta. Pelaajan muistettua kierroksen kuviot oikein, pelaajalle näytetään täysin uusi kuvio-ketju, jonka pituus on edellistä yhdempi isompi.
 
-- Easy game - 
-Muuten kuin Normal game, paitsi muistettava kuvio-ketju säilyy läpi kierrosten samana. Vain ketjun pituus kasvaa kunkin kierroksen päätteeksi yhdellä!
+- Helppo - 
+Muuten kuin Normaali peli, paitsi muistettava kuvio-ketju säilyy läpi kierrosten samana. Vain ketjun pituus kasvaa kunkin kierroksen päätteeksi yhdellä!
 
-- Blind game - 
-Muuten kuin Easy game, paitsi käyttäjä näkee kunkin kierroksen alussa vain ketjun uusimman kuvion!
+- Sokko - 
+Muuten kuin Helppo peli, paitsi käyttäjä näkee kunkin kierroksen alussa vain ketjun uusimman kuvion!
 
 - Reverse game - 
-Muuten kuin Normal game, paitsi käyttäjän tulee muistaa näkemänsä symbolit päinvastaisessa järjestyksessä!
+Muuten kuin Normaali peli, paitsi käyttäjän tulee muistaa näkemänsä symbolit päinvastaisessa järjestyksessä!
+
+
+Pelaajan on myös mahdollista muuttaa pelin asetuksia haluamikseen "Asetukset" -valikosta.
+
+- Aloituskierros - 
+Pelaaja voi asettaa itselleen haluamansa aloituskierroksen, jolloinka peli alkaa suoraan valitusta kierroksesta. Huomioitavaa on, että aloituskierroksella näytettävien kuvioiden määrä on aloituskierroksen numeron ja "Vaikeusasteen" tulo.
+
+- Vaikeusaste - 
+Vaikeuaste määrittää, kuinka monella kuviolla kuvioketju kasvaa jokaisen kierroksen alussa. Vaikeuasteen ollessa nolla, kuvioiden lukumäärä ei kasva ollenkaan: ketjun pituus vastaa tällöin aina aloituskierroksen numeroa.
+
+- Kuvioiden kesto -
+Kuvioiden kesto määrittää, kuinka pitkän aikaa kukin kuvio näytetään pelaajalle. Luku on millisekunteina.
+
+- Varoituksen kesto - 
+Varoituksen kesto määrittää, kuinka kauan jokaisen kierroksen alussa näkyvä "Kierros X! Valmistaudu!" -varoitus on näkyvissä pelaajalle.
+
+- Pisteytys - 
+Ohjelman tietokantaan voi tallentaa vain "viralliset" pisteet, eli toisin sanoen "Default" asetuksilla saadut pisteet. Mikäli käyttäjä muuttaa asetuksia, virallinen pisteytys otetaan automaattisesti pois käytöstä. Käyttäjän täytyy painaa "Default"-painiketta saadakseen virallisen pisteytyksen takaisin käyttöön.
+
+- Default -
+Palauttaa asetukset oletusarvoisiksi asetuksiksi. Ottaa virallisen pisteytyksen takaisin käyttöön.
+
+
+
