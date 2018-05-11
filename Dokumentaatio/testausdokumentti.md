@@ -13,3 +13,10 @@ Sovelluksen graafista käyttöliittymää on testattu laajasti manuaalisesti, ja
 ## Jatkokehitysidea
 
 Tällä hetkellä symboliketju koostuu satunnaisesti numeroista väliltä 1-4. Tämä tekee joidenkin luokkien toiminnallisuuden testaamisesta haastavaa. Tulevaisuuden varalta voitaisiin SymbolChain ja Round luokkiin lisätä metodeita, joilla voitaisiin testaustarkoitusta varten luoda jokin vakio symboliketju.
+
+
+## Rivikattavuus
+
+Tällä hetkellä testauksen rivikattavuus näyttää seuraavalta
+
+[](https://raw.githubusercontent.com/valtterin/otm-harjoitustyo/master/Dokumentaatio/muistipeliTesting.png)
