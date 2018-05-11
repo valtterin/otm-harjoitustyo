@@ -23,6 +23,9 @@ Peli n채ytt채채 pelaajalle ketjun symboleita. Pelaajan tulee muistaa n채kem채ns�
 
 [arkkitehtuuri](https://github.com/valtterin/otm-harjoitustyo/blob/master/Dokumentaatio/arkkitehtuuri.md)
 
+[testausdokumentti](https://github.com/valtterin/otm-harjoitustyo/blob/master/Dokumentaatio/testausdokumentti.md)
+
+
 
 
 
