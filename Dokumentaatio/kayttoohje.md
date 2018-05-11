@@ -51,5 +51,5 @@ Palauttaa oletusarvoiset asetukset.
 
 _________
 
-Kunkin pelin päätteeksi pelaajalta kysytään, mikäli hän haluaa tallentaa pisteensä tietokantaan. Pelaajan tulee syöttää nimimerkki, joka koostuu vain kirjaimista, ja on enintään 10 kirjaimen pituinen.
+Kunkin pelin päätteeksi pelaajalta kysytään, mikäli hän haluaa tallentaa pisteensä tietokantaan. Pelaajan tulee syöttää nimimerkki, joka koostuu vain kirjaimista, ja on enintään 10 kirjaimen pituinen. Pelaaja voi halutessaan tarkastaa tietokannasta löytyvät korkeimmat pisteet "Parhaat pisteet" -välilehdeltä. Välilehdellä "Nollaus"-painike poistaa kaikki vanhat pisteet tietokannasta.
 
