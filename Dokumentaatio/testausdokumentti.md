@@ -8,3 +8,8 @@ Luokka ScoreDaoTest testaa tietokannan toimintaa (luokat paketissa muistipeli.da
 ## Manuaalinen testaus
 
 Sovelluksen graafista käyttöliittymää on testattu laajasti manuaalisesti, ja testauksen aikana kohdatut ongelmat on oikaistu. Tällä hetkellä tiedossa ei ole oikaisemattomia ongelmia.
+
+
+## Jatkokehitysidea
+
+Tällä hetkellä symboliketju koostuu satunnaisesti numeroista väliltä 1-4. Tämä tekee joidenkin luokkien toiminnallisuuden testaamisesta haastavaa. Tulevaisuuden varalta voitaisiin SymbolChain ja Round luokkiin lisätä metodeita, joilla voitaisiin testaustarkoitusta varten luoda jokin vakio symboliketju.
