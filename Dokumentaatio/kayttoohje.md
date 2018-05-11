@@ -1,9 +1,9 @@
 # Käyttöohje
 
-Lataa tiedosto [MuistipeliV2.jar](https://github.com/valtterin/otm-harjoitustyo/releases/tag/viikko6Final). Ohjelma käynnistetään komennolla 
+Lataa tiedosto [MuistipeliRelease.jar](https://github.com/valtterin/otm-harjoitustyo/releases/tag/loppupalautus). Ohjelma käynnistetään komennolla 
 
 ```
-java -jar MuistipeliV2.jar
+java -jar MuistipeliRelease.jar
 ```
 
 ## Kuvaus
