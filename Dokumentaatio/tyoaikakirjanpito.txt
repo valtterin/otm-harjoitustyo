@@ -15,6 +15,6 @@
 6.5.	(6 tuntia) "Asetukset"-välilehti ja graafisen käyttöliittymän päivitystä
 9.5.	(3 tuntia) Tietokantoihin perehtymistä ja alustavan tietokannan käyttöönotto
 11.5.	(3 tuntia) Tietokannan sulauttaminen käyttöliittymään, "Parhaat pisteet"-välilehti
-	(3 tuntia) Dokumentaation päivitystä
+	(3 tuntia) Dokumentaation ja testauksen päivitystä, viimeiset silaukset koodiin
 
 Yhteensä: 51 tuntia
