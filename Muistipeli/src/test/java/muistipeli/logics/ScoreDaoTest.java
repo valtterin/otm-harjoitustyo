@@ -21,7 +21,7 @@ public class ScoreDaoTest {
     
     @Before
     public void setUp() throws Exception  {
-        database = new Database("jdbc:sqlite:scores.db");
+        database = new Database("jdbc:sqlite:scoresTest.db");
         database.deleteAll();
         scoredao = new ScoreDao(database);
         test1Score = new Score("Juha", 15, "Reverse");
