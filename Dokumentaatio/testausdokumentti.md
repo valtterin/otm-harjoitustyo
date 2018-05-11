@@ -20,3 +20,5 @@ Tällä hetkellä symboliketju koostuu satunnaisesti numeroista väliltä 1-4. T
 Tällä hetkellä testauksen rivikattavuus näyttää seuraavalta
 
 ![](https://raw.githubusercontent.com/valtterin/otm-harjoitustyo/master/Dokumentaatio/muistipeliTesting.png)
+
+Muistipeli.logics paketissa olevan luokan Game metodi configure tuo haarautumiskattavuutta alaspäin, koska kyseinen metodi pitää sisällään if-ehdon, joka toimii vain varmistuksena tulevan varalta (mikäli ohjelmaa jatkokehitetään). Tällä hetkellä kyseisen ehdon haarautumista ei ole mahdollista testata järkevästi.
