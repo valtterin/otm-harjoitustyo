@@ -23,7 +23,7 @@ public class Database {
         return DriverManager.getConnection(databaseAddress);
     }
     
-    private void init() {
+    public void init() {
         try (Connection conn = getConnection()) {
             Statement statement = conn.createStatement();
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS Scores(id integer PRIMARY KEY, nickname varchar(200), score integer(20), gamemode varchar(200))");
@@ -31,6 +31,15 @@ public class Database {
         } catch (Throwable t) {
             System.out.println("Virhe: " + t.getMessage());
         }
+    }
+    
+    public void deleteAll() throws SQLException {
+        Connection connection = this.getConnection();
+        PreparedStatement statement = connection.prepareStatement("DROP TABLE scores");
+        statement.executeUpdate();      
+        connection.close();    
+        this.init();
+
     }
 
 }

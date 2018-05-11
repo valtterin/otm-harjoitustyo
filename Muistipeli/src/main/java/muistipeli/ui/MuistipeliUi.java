@@ -1,5 +1,6 @@
 package muistipeli.ui;
 // import static javafx.application.Application.launch;
+import java.sql.SQLException;
 import muistipeli.gamemodes.ReverseGame;
 import muistipeli.gamemodes.BlindGame;
 import muistipeli.logics.Game;
@@ -32,6 +33,7 @@ public class MuistipeliUi extends Application {
     Text delayInfo;
     Text infoDelayInfo;
     Text scoringInfo;
+    Text endgameText4 = new Text(" ");;
     
     
     int startingRound = 1;
@@ -52,6 +54,7 @@ public class MuistipeliUi extends Application {
     Scene symbolFourScene;
     Scene optionsScene;
     Scene HighScoresScene;
+    Scene scoresScene;
     Text scoring;
     Text endgameText;
     BorderPane askSymbolsPane;
@@ -62,12 +65,15 @@ public class MuistipeliUi extends Application {
     Scene showScene;
     Text centerHelpLabel;
     
+    Database database;
+    ScoreDao scoredao;
+    
         
     @Override
     public void start(Stage primaryStage) throws Exception{
         
-        Database database = new Database("jdbc:sqlite:scores.db");
-        ScoreDao scoredao = new ScoreDao(database);
+        database = new Database("jdbc:sqlite:scores.db");
+        scoredao = new ScoreDao(database);
         
         
         
@@ -76,84 +82,9 @@ public class MuistipeliUi extends Application {
         
         
         // end game scene
-        
-        
-        TextField playerNick = new TextField("nimimerkkisi");
-        playerNick.setPromptText("nimimerkkisi");
-        playerNick.setMaxWidth(150);
-        
-        Text endgameText1 = new Text("Väärin! Peli loppui!");
-        endgameText = new Text("Pisteesi olivat: " + newGame.getScore());
-        Text endgameText3 = new Text("Haluatko tallentaa pisteesi?");
-        
-        Button backToMenu = new Button("Peruuta");
-        backToMenu.setStyle("-fx-font-size: 1.2em; -fx-text-fill: #8B4513; -fx-background-color: #FFF8DC; -fx-border-color: #DEB887; -fx-border-width: 1px;");
-        backToMenu.setMinWidth(25);
-        backToMenu.setOnAction((event) -> {
-            primaryStage.setScene(newGameScene);
-        });
-        
-        Button saveScore = new Button("Tallenna");
-        saveScore.setStyle("-fx-font-size: 1.2em; -fx-text-fill: #8B4513; -fx-background-color: #FFF8DC; -fx-border-color: #DEB887; -fx-border-width: 1px;");
-        saveScore.setOnAction((event) -> {
-            String nick = playerNick.getText();
-            if (nick.length() == 0) {
-                System.out.println("liian lyhyt");
-            }
-            if (nick.length() > 10) {
-                System.out.println("liian pitkä");
-            }
-            
-            if (nick.length() > 0 && nick.length() <= 10) {
-                int i = 0;
-                boolean validNick = true;
-                while (i < nick.length()) {
-                    if (!Character.isLetter(nick.charAt(i))) {
-                        validNick = false;
-                    }
-                    i++;
-                }
-                if (validNick) {
-                    primaryStage.setScene(newGameScene);
-                } else {
-                    System.out.println("Invalid nick");
-                    // insert functionality for updating text, need to rework whole box
-                }
-
-            }
-            
-            
-        });
+        this.defineEndScene();
         
 
-        
-        BorderPane endgamePane = new BorderPane();
-        VBox endgame = new VBox();
-        
-        endgame.getChildren().add(endgameText1);
-        endgame.getChildren().add(endgameText);
-        endgame.getChildren().add(new Text(""));
-        endgame.getChildren().add(endgameText3);
-        endgame.getChildren().add(new Text(""));
-        endgame.getChildren().add(playerNick);
-        endgame.getChildren().add(new Text(""));
-        
-        HBox endgameButtons = new HBox();
-        endgameButtons.getChildren().add(backToMenu);
-        endgameButtons.getChildren().add(saveScore);
-        endgameButtons.setSpacing(25);
-        endgameButtons.setAlignment(Pos.CENTER);
-
-         endgame.getChildren().add(endgameButtons);
-        
-        endgame.setAlignment(Pos.CENTER);
-        
-        endgamePane.setCenter(endgame);
-        endgamePane.setStyle("-fx-background-color: #FFFFF0;");
-        endGameScene = new Scene(endgamePane, 285, 250);
-        
-        
-        
         // symbol one to four scenes
         
         Circle greenCircleBig = new Circle();    
@@ -206,6 +137,9 @@ public class MuistipeliUi extends Application {
         Group root4 = new Group(blueSquareBig); 
         symbolFourScene = new Scene(root4, 285, 250, Color.IVORY);  
         
+        // high scores Scene defined
+        this.defineScoreScene();
+
         
         // optionsScene defined
         BorderPane optionsPane = new BorderPane();
@@ -237,12 +171,7 @@ public class MuistipeliUi extends Application {
         GridPane.setConstraints(infoDelayLabel, 0, 3);
         optionsGrid.getChildren().add(infoDelayLabel);
         
-        Text scoringLabel = new Text("Pisteytys:");
-        scoringLabel.setFill(Color.SADDLEBROWN);
-        GridPane.setConstraints(scoringLabel, 0, 4);
-        optionsGrid.getChildren().add(scoringLabel);
-        
-        
+
         startingRoundInfo = new Text(Integer.toString(startingRound));
         startingRoundInfo.setFill(Color.BLACK);
         GridPane.setConstraints(startingRoundInfo, 1, 0);
@@ -262,11 +191,7 @@ public class MuistipeliUi extends Application {
         infoDelayInfo.setFill(Color.BLACK);
         GridPane.setConstraints(infoDelayInfo, 1, 3);
         optionsGrid.getChildren().add(infoDelayInfo);
-        
-        scoringInfo = new Text("Disabled");
-        scoringInfo.setFill(Color.BLACK);
-        GridPane.setConstraints(scoringInfo, 1, 4);
-        optionsGrid.getChildren().add(scoringInfo);
+
         
         optionsPane.setTop(optionsGrid);
         optionsScene = new Scene(optionsPane, 285, 260);       
@@ -434,9 +359,9 @@ public class MuistipeliUi extends Application {
             
         }); 
 
-        Button exitButton = new Button("Takaisin");
-        exitButton.setStyle("-fx-font-size: 1.2em; -fx-text-fill: #8B4513; -fx-background-color: #FFF8DC; -fx-border-color: #DEB887; -fx-border-width: 1px;");
-        exitButton.setOnAction((event) -> {
+        Button exitButton2 = new Button("Takaisin");
+        exitButton2.setStyle("-fx-font-size: 1.2em; -fx-text-fill: #8B4513; -fx-background-color: #FFF8DC; -fx-border-color: #DEB887; -fx-border-width: 1px;");
+        exitButton2.setOnAction((event) -> {
             thestage.setScene(newGameScene);
         });
   
@@ -445,7 +370,7 @@ public class MuistipeliUi extends Application {
         settingsButtons.setSpacing(110);
         settingsButtons.setAlignment(Pos.CENTER); 
         
-        settingsButtons.getChildren().add(exitButton);
+        settingsButtons.getChildren().add(exitButton2);
         settingsButtons.getChildren().add(defaultsButton);
 
         GridPane.setConstraints(settingsButtons, 0, 0);
@@ -524,7 +449,7 @@ public class MuistipeliUi extends Application {
         Button scoresButton = new Button("Parhaat Pisteet");
         scoresButton.setMinWidth(95);
         scoresButton.setOnAction((event) -> {
-            thestage.setScene(optionsScene);
+            thestage.setScene(scoresScene);
         });
         
 //	gameButtons.getChildren().add(newEasyGameButton);        
@@ -708,6 +633,7 @@ public class MuistipeliUi extends Application {
                 }
             } else {
                 showSymbolsPane.setCenter(new Label("Väärin! Peli loppui!   Pisteesi olivat: " + newGame.getScore()));
+                this.defineEndScene();
                 thestage.setScene(endGameScene);
 
                 scoring.setText("Pisteet: 0");
@@ -716,13 +642,254 @@ public class MuistipeliUi extends Application {
         });
         return buttonX;
    } 
+    
+    public void defineScoreScene() throws Exception {
+                
+        
+        // scoreScene defined
+        BorderPane scoresPane = new BorderPane();
+        scoresPane.setStyle("-fx-background-color: #FFFFF0;");
+        
+        GridPane scoresGrid = new GridPane();
+        scoresGrid.setPadding(new Insets(20, 20, 20, 20));
+        scoresGrid.setVgap(10);
+        scoresGrid.setHgap(30);
 
+        
+        Text modeInfo = new Text("Pelimuoto");
+        GridPane.setConstraints(modeInfo, 0, 0);
+        Text playerInfo = new Text("Pelaaja");
+        GridPane.setConstraints(playerInfo, 1, 0);
+        Text scoreInfo = new Text("Pisteet");
+        GridPane.setConstraints(scoreInfo, 2, 0);
+        scoresGrid.getChildren().add(modeInfo);
+        scoresGrid.getChildren().add(playerInfo);
+        scoresGrid.getChildren().add(scoreInfo);
+        
+        Text easyLabel = new Text("Helppo:");
+        easyLabel.setFill(Color.SADDLEBROWN);
+        GridPane.setConstraints(easyLabel, 0, 1);
+        scoresGrid.getChildren().add(easyLabel);
+
+        Text normalLabel = new Text("Normaali:");
+        normalLabel.setFill(Color.SADDLEBROWN);
+        GridPane.setConstraints(normalLabel, 0, 2);
+        scoresGrid.getChildren().add(normalLabel);
+        
+        Text blindLabel = new Text("Sokko:");
+        blindLabel.setFill(Color.SADDLEBROWN);
+        GridPane.setConstraints(blindLabel, 0, 3);
+        scoresGrid.getChildren().add(blindLabel);
+        
+        Text reverseLabel = new Text("Reverse:");
+        reverseLabel.setFill(Color.SADDLEBROWN);
+        GridPane.setConstraints(reverseLabel, 0, 4);
+        scoresGrid.getChildren().add(reverseLabel);
+        
+        
+
+        Text easyTopScorePlayer = new Text(scoredao.bestScore("Easy").getPlayerName());
+        easyTopScorePlayer.setFill(Color.BLACK);
+        GridPane.setConstraints(easyTopScorePlayer, 1, 1);
+        scoresGrid.getChildren().add(easyTopScorePlayer);
+
+        Text normalTopScorePlayer = new Text(scoredao.bestScore("Normal").getPlayerName());
+        normalTopScorePlayer.setFill(Color.BLACK);
+        GridPane.setConstraints(normalTopScorePlayer, 1, 2);
+        scoresGrid.getChildren().add(normalTopScorePlayer);
+        
+        Text blindTopScorePlayer = new Text(scoredao.bestScore("Blind").getPlayerName());
+        blindTopScorePlayer.setFill(Color.BLACK);
+        GridPane.setConstraints(blindTopScorePlayer, 1, 3);
+        scoresGrid.getChildren().add(blindTopScorePlayer);
+        
+        Text reverseTopScorePlayer = new Text(scoredao.bestScore("Reverse").getPlayerName());
+        reverseTopScorePlayer.setFill(Color.BLACK);
+        GridPane.setConstraints(reverseTopScorePlayer, 1, 4);
+        scoresGrid.getChildren().add(reverseTopScorePlayer);
+        
+        
+        Text easyTopScore = new Text(Integer.toString(scoredao.bestScore("Easy").getScore()));
+        easyTopScore.setFill(Color.BLACK);
+        GridPane.setConstraints(easyTopScore, 2, 1);
+        scoresGrid.getChildren().add(easyTopScore);
+
+        Text normalTopScore = new Text(Integer.toString(scoredao.bestScore("Normal").getScore()));
+        normalTopScore.setFill(Color.BLACK);
+        GridPane.setConstraints(normalTopScore, 2, 2);
+        scoresGrid.getChildren().add(normalTopScore);
+        
+        Text blindTopScore = new Text(Integer.toString(scoredao.bestScore("Blind").getScore()));
+        blindTopScore.setFill(Color.BLACK);
+        GridPane.setConstraints(blindTopScore, 2, 3);
+        scoresGrid.getChildren().add(blindTopScore);
+        
+        Text reverseTopScore = new Text(Integer.toString(scoredao.bestScore("Reverse").getScore()));
+        reverseTopScore.setFill(Color.BLACK);
+        GridPane.setConstraints(reverseTopScore, 2, 4);
+        scoresGrid.getChildren().add(reverseTopScore);
+        
+        
+        
+        scoresGrid.setAlignment(Pos.CENTER);
+        
+        scoresPane.setTop(scoresGrid);
+        scoresScene = new Scene(scoresPane, 285, 260);       
+        
+        
+    
+        
+        GridPane scoresSecondGrid = new GridPane();
+        scoresSecondGrid.setPadding(new Insets(0, 20, 20, 20));
+
+        
+        Button resetButton = new Button("Nollaa");
+        resetButton.setStyle("-fx-font-size: 1.2em; -fx-text-fill: #8B4513; -fx-background-color: #FFF8DC; -fx-border-color: #DEB887; -fx-border-width: 1px;");
+        resetButton.setOnAction((event) -> {
+            try {
+                database.deleteAll();
+            } catch (SQLException ex) {
+                System.out.println("error");
+            }
+            try {
+                this.defineScoreScene();
+            } catch (Exception ex) {
+                System.out.println("error");
+            }
+            
+            thestage.setScene(scoresScene);
+        }); 
+
+        Button exitButton = new Button("Takaisin");
+        exitButton.setStyle("-fx-font-size: 1.2em; -fx-text-fill: #8B4513; -fx-background-color: #FFF8DC; -fx-border-color: #DEB887; -fx-border-width: 1px;");
+        exitButton.setOnAction((event) -> {
+            thestage.setScene(newGameScene);
+        });
+  
+        
+        HBox scoresButtons = new HBox();
+        scoresButtons.setSpacing(110);
+        scoresButtons.setAlignment(Pos.CENTER); 
+        
+        scoresButtons.getChildren().add(exitButton);
+        scoresButtons.getChildren().add(resetButton);
+
+        GridPane.setConstraints(scoresButtons, 0, 0);
+        scoresSecondGrid.getChildren().add(scoresButtons);
+        scoresSecondGrid.setAlignment(Pos.CENTER);
+        
+        scoresPane.setBottom(scoresSecondGrid);
+        
+
+        
+    }
+
+    
+    
+    public void defineEndScene() {
+        
+        
+        TextField playerNick = new TextField("nimimerkkisi");
+        playerNick.setPromptText("nimimerkkisi");
+        playerNick.setMaxWidth(150);
+        
+        endgameText = new Text("Pisteesi olivat: " + newGame.getScore());
+        endgameText.setFont(Font.font ("Verdana", 20));
+        endgameText.setFill(Color.SADDLEBROWN);
+        
+        Button backToMenu = new Button("Peruuta");
+        backToMenu.setStyle("-fx-font-size: 1.2em; -fx-text-fill: #8B4513; -fx-background-color: #FFF8DC; -fx-border-color: #DEB887; -fx-border-width: 1px;");
+        backToMenu.setMinWidth(25);
+        backToMenu.setOnAction((event) -> {
+            endgameText4 = new Text (" ");
+            thestage.setScene(newGameScene);
+        });
+        
+        Button saveScore = new Button("Tallenna");
+        saveScore.setStyle("-fx-font-size: 1.2em; -fx-text-fill: #8B4513; -fx-background-color: #FFF8DC; -fx-border-color: #DEB887; -fx-border-width: 1px;");
+        saveScore.setOnAction((event) -> {
+            String nick = playerNick.getText();
+            if (nick.length() == 0) {
+                endgameText4 = new Text ("liian lyhyt");
+                this.defineEndScene();
+            }
+            if (nick.length() > 10) {
+                endgameText4 = new Text ("liian pitkä (max 10)");
+                this.defineEndScene();
+            }
+            thestage.setScene(endGameScene);
+            if (nick.length() > 0 && nick.length() <= 10) {
+                int i = 0;
+                boolean validNick = true;
+                while (i < nick.length()) {
+                    if (!Character.isLetter(nick.charAt(i))) {
+                        validNick = false;
+                    }
+                    i++;
+                }
+                if (validNick) {
+                    
+                    Score highScore = new Score(nick, newGame.getScore(), newGame.getMode());
+                    try {
+                        scoredao.saveScore(highScore);
+                    } catch (SQLException ex) {
+                        System.out.println("error");
+                    }
+                    
+                    try {
+                        this.defineScoreScene();
+                    } catch (Exception ex) {
+                        System.out.println("error");
+                    }
+                    endgameText4 = new Text (" ");
+                    thestage.setScene(newGameScene);
+                } else {
+                    endgameText4 = new Text ("vain kirjaimet ovat sallittuja");
+                    this.defineEndScene();
+                    thestage.setScene(endGameScene);
+                }
+
+            }
+            
+            
+            
+        });
+        
+
+        
+        BorderPane endgamePane = new BorderPane();
+        VBox endgame = new VBox();
+        
+        endgame.getChildren().add(new Text("Väärin! Peli loppui!"));
+        endgame.getChildren().add(new Text(""));
+        endgame.getChildren().add(endgameText);
+        endgame.getChildren().add(new Text(""));
+        endgame.getChildren().add(new Text(""));
+        endgame.getChildren().add(new Text("Haluatko tallentaa pisteesi?"));
+        endgame.getChildren().add(new Text(""));
+        endgame.getChildren().add(playerNick);
+        endgame.getChildren().add(new Text(""));
+        
+        HBox endgameButtons = new HBox();
+        endgameButtons.getChildren().add(backToMenu);
+        endgameButtons.getChildren().add(saveScore);
+        endgameButtons.setSpacing(25);
+        endgameButtons.setAlignment(Pos.CENTER);
+        endgame.getChildren().add(endgameButtons);
+        endgame.setAlignment(Pos.CENTER);
+        endgame.getChildren().add(new Text(""));
+        endgame.getChildren().add(endgameText4);
+        
+        endgamePane.setCenter(endgame);
+        endgamePane.setStyle("-fx-background-color: #FFFFF0;");
+        endGameScene = new Scene(endgamePane, 285, 250);
+    }
+    
+    
     public void showSymbols() { 
         showSymbolsPane.setCenter(new Label("Kierros " + Integer.toString(newGame.getRoundNumber()) + "!   Valmistaudu!"));
         thestage.setScene(showSymbolsScene);
 
-
-        System.out.println("Kierros: " + this.newGame.getRoundNumber());
 
         delay1 = delayText;
 
@@ -733,7 +900,6 @@ public class MuistipeliUi extends Application {
             int print = this.newGame.nextSymbol();
             
             if (print > 0) {
-                System.out.println(print);
                 
                 if (print == 1) {
                     int delay2 = delay1;

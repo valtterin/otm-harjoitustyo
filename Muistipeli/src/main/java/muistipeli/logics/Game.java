@@ -18,6 +18,7 @@ public class Game {
     public boolean ranked;
     public int startingRound;
     public int startingDifficulty;
+    public String mode;
 
 
     /**
@@ -28,6 +29,7 @@ public class Game {
      * @param   chosenStart   Aloituskierroksen numero, pelaajan valitsema
      */   
     public Game(int chosenDifficulty, int chosenStart) {
+        this.mode = "Normal";
         this.roundNumber = chosenStart;
         this.startingRound = chosenStart;
         this.difficulty = chosenDifficulty;
@@ -93,6 +95,10 @@ public class Game {
     
     public int getScore() {
         return this.score;
+    }
+    
+    public String getMode() {
+        return this.mode;
     }
     
 

@@ -13,6 +13,7 @@ public class BlindGame extends Game {
     
     public BlindGame(int chosenDifficulty, int chosenStart) {
         super(chosenDifficulty, chosenStart);
+        this.mode = "Blind";
     }
 
     

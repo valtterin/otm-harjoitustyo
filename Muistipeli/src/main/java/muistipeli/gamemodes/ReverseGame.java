@@ -8,6 +8,7 @@ public class ReverseGame extends Game {
     
     public ReverseGame(int chosenDifficulty, int chosenStart) {
         super(chosenDifficulty, chosenStart);
+        this.mode = "Reverse";
     }
     
 

@@ -73,10 +73,10 @@ public class ScoreDao implements Dao<Score, Integer> {
     }
 
     
-//    /**
-//    *
-//    * Tallentaa parametrina annetun scoren tietokantaan
-//    */
+    /**
+    *
+    * Tallentaa parametrina annetun scoren tietokantaan
+    */
     @Override
     public boolean saveScore(Score score) throws SQLException {
         Connection connection = database.getConnection();
@@ -93,5 +93,9 @@ public class ScoreDao implements Dao<Score, Integer> {
 
         return true;
     }
+    
+    
+    
+    
 
 }

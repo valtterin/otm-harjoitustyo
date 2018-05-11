@@ -12,6 +12,7 @@ public class EasyGame extends Game {
     
     public EasyGame(int chosenDifficulty, int chosenStart) {
         super(chosenDifficulty, chosenStart);
+        this.mode = "Easy";
     }
     
     
