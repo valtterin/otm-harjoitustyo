@@ -5,6 +5,6 @@ Sovelluksen automaattiset testit SymbolChainTest, RoundTest ja GameTest testaava
 Luokka ScoreDaoTest testaa tietokannan toimintaa (luokat paketissa muistipeli.dao), vaikkeikaan kovin laajasti. ScoreDaoTest sisältää tällä hetkellä vain yhden testin, mutta kyseinen testi testaa yhdellä kertaa kaikkien muistipeli.dao paketista löytyvien luokkien toimintaa, koska ScoreDao:n metodi saveScore() käyttää kaikkia paketista löytyviä luokkia jossain muodossa.
 
 
-# Manuaalinen testaus
+## Manuaalinen testaus
 
 Sovelluksen graafista käyttöliittymää on testattu laajasti manuaalisesti, ja testauksen aikana kohdatut ongelmat on oikaistu. Tällä hetkellä tiedossa ei ole oikaisemattomia ongelmia.
