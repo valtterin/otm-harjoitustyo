@@ -35,7 +35,6 @@ public class MuistipeliUi extends Application {
     Text scoringInfo;
     Text endgameText4 = new Text(" ");;
     
-    
     int startingRound = 1;
     int difficulty = 1;
     int delaySymbol = 1000;   // kuvioiden kesto ruudulla 
@@ -43,7 +42,6 @@ public class MuistipeliUi extends Application {
     boolean legitScore = true;
     int delay1;  
     Game newGame = new Game(difficulty, startingRound);
-    Text score = new Text("Pisteet: ");
     Scene newGameScene;
     Scene showSymbolsScene;
     Scene guessScene;
@@ -74,10 +72,6 @@ public class MuistipeliUi extends Application {
         
         database = new Database("jdbc:sqlite:scores.db");
         scoredao = new ScoreDao(database);
-        
-        
-        
-        
         thestage = primaryStage;
         
         
@@ -86,58 +80,10 @@ public class MuistipeliUi extends Application {
         
 
         // symbol one to four scenes
+        this.defineSymbolScenes();
+          
         
-        Circle greenCircleBig = new Circle();    
-        greenCircleBig.setCenterX(142.5f); 
-        greenCircleBig.setCenterY(125.0f); 
-        greenCircleBig.setRadius(70.0f); 
-        greenCircleBig.setFill(Color.GREEN);    
-        greenCircleBig.setStrokeWidth(2);  
-        greenCircleBig.setStroke(Color.BLACK);
-
-        Group root1 = new Group(greenCircleBig); 
-        symbolOneScene = new Scene(root1, 285, 250, Color.IVORY);  
-        
-
-        Polygon redTriangleBig = new Polygon();
-        redTriangleBig.getPoints().addAll(new Double[]{
-            145.0, 55.0,
-            70.0, 190.0,
-            220.0, 190.0 });
-        redTriangleBig.setFill(Color.RED);    
-        redTriangleBig.setStrokeWidth(2); 
-        redTriangleBig.setStroke(Color.BLACK);
-
-        Group root2 = new Group(redTriangleBig); 
-        symbolTwoScene = new Scene(root2, 285, 250, Color.IVORY);  
-        
-        
-        Circle yellowCircleBig = new Circle();    
-        yellowCircleBig.setCenterX(142.5f); 
-        yellowCircleBig.setCenterY(125.0f); 
-        yellowCircleBig.setRadius(70.0f); 
-        yellowCircleBig.setFill(Color.YELLOW);    
-        yellowCircleBig.setStrokeWidth(2); 
-        yellowCircleBig.setStroke(Color.BLACK);
-    
-        Group root3 = new Group(yellowCircleBig); 
-        symbolThreeScene = new Scene(root3, 285, 250, Color.IVORY);  
-        
-        Rectangle blueSquareBig = new Rectangle();
-        blueSquareBig.setX(82.5);
-        blueSquareBig.setY(70);
-        blueSquareBig.setWidth(120);
-        blueSquareBig.setHeight(120);
-        blueSquareBig.setArcWidth(1);
-        blueSquareBig.setArcHeight(1);  
-        blueSquareBig.setFill(Color.DARKBLUE);    
-        blueSquareBig.setStrokeWidth(2);  
-        blueSquareBig.setStroke(Color.BLACK);
-
-        Group root4 = new Group(blueSquareBig); 
-        symbolFourScene = new Scene(root4, 285, 250, Color.IVORY);  
-        
-        // high scores Scene defined
+        // highscores Scene defined
         this.defineScoreScene();
 
         
@@ -153,44 +99,37 @@ public class MuistipeliUi extends Application {
         
         Text startingRoundLabel = new Text("Aloituskierros:");
         startingRoundLabel.setFill(Color.SADDLEBROWN);
-        GridPane.setConstraints(startingRoundLabel, 0, 0);
-        optionsGrid.getChildren().add(startingRoundLabel);
+        optionsGrid.add(startingRoundLabel, 0, 0);
 
         Text difficultyLabel = new Text("Vaikeusaste:");
         difficultyLabel.setFill(Color.SADDLEBROWN);
-        GridPane.setConstraints(difficultyLabel, 0, 1);
-        optionsGrid.getChildren().add(difficultyLabel);
+        optionsGrid.add(difficultyLabel, 0, 1);
         
         Text delayLabel = new Text("Kuvioiden kesto:");
         delayLabel.setFill(Color.SADDLEBROWN);
-        GridPane.setConstraints(delayLabel, 0, 2);
-        optionsGrid.getChildren().add(delayLabel);
+        optionsGrid.add(delayLabel, 0, 2);
         
         Text infoDelayLabel = new Text("Varoituksen kesto:");
         infoDelayLabel.setFill(Color.SADDLEBROWN);
-        GridPane.setConstraints(infoDelayLabel, 0, 3);
-        optionsGrid.getChildren().add(infoDelayLabel);
+        optionsGrid.add(infoDelayLabel, 0, 3);
         
 
         startingRoundInfo = new Text(Integer.toString(startingRound));
         startingRoundInfo.setFill(Color.BLACK);
-        GridPane.setConstraints(startingRoundInfo, 1, 0);
-        optionsGrid.getChildren().add(startingRoundInfo);
+        optionsGrid.add(startingRoundInfo, 1, 0);
 
         difficultyInfo = new Text(Integer.toString(difficulty));
         difficultyInfo.setFill(Color.BLACK);
-        GridPane.setConstraints(difficultyInfo, 1, 1);
-        optionsGrid.getChildren().add(difficultyInfo);
+        optionsGrid.add(difficultyInfo, 1, 1);
         
         delayInfo = new Text(Integer.toString(delaySymbol) + " ms");
         delayInfo.setFill(Color.BLACK);
-        GridPane.setConstraints(delayInfo, 1, 2);
-        optionsGrid.getChildren().add(delayInfo);
+        optionsGrid.add(delayInfo, 1, 2);
+
         
         infoDelayInfo = new Text(Integer.toString(delayText) + " ms");
         infoDelayInfo.setFill(Color.BLACK);
-        GridPane.setConstraints(infoDelayInfo, 1, 3);
-        optionsGrid.getChildren().add(infoDelayInfo);
+        optionsGrid.add(infoDelayInfo, 1, 3);
 
         
         optionsPane.setTop(optionsGrid);
@@ -206,8 +145,7 @@ public class MuistipeliUi extends Application {
             }
             optionsGrid.getChildren().remove(startingRoundInfo);
             startingRoundInfo = new Text(Integer.toString(startingRound));
-            GridPane.setConstraints(startingRoundInfo, 1, 0);
-            optionsGrid.getChildren().add(startingRoundInfo);
+            optionsGrid.add(startingRoundInfo, 1, 0);
         });
         
         Button plusStartButton = new Button("+");
@@ -218,8 +156,7 @@ public class MuistipeliUi extends Application {
             }
             optionsGrid.getChildren().remove(startingRoundInfo);
             startingRoundInfo = new Text(Integer.toString(startingRound));
-            GridPane.setConstraints(startingRoundInfo, 1, 0);
-            optionsGrid.getChildren().add(startingRoundInfo);
+            optionsGrid.add(startingRoundInfo, 1, 0);
         });
 
         Button minusDifficultyButton = new Button("-");
@@ -231,8 +168,7 @@ public class MuistipeliUi extends Application {
             }
             optionsGrid.getChildren().remove(difficultyInfo);
             difficultyInfo = new Text(Integer.toString(difficulty));
-            GridPane.setConstraints(difficultyInfo, 1, 1);
-            optionsGrid.getChildren().add(difficultyInfo);
+            optionsGrid.add(difficultyInfo, 1, 1);
         });
         
         Button plusDifficultyButton = new Button("+");
@@ -243,8 +179,7 @@ public class MuistipeliUi extends Application {
             }
             optionsGrid.getChildren().remove(difficultyInfo);
             difficultyInfo = new Text(Integer.toString(difficulty));
-            GridPane.setConstraints(difficultyInfo, 1, 1);
-            optionsGrid.getChildren().add(difficultyInfo);
+            optionsGrid.add(difficultyInfo, 1, 1);
         });
         
         
@@ -257,8 +192,7 @@ public class MuistipeliUi extends Application {
             }
             optionsGrid.getChildren().remove(delayInfo);
             delayInfo = new Text(Integer.toString(delaySymbol) + " ms");
-            GridPane.setConstraints(delayInfo, 1, 2);
-            optionsGrid.getChildren().add(delayInfo);
+            optionsGrid.add(delayInfo, 1, 2);
         });
         
         Button plusDelayButton = new Button("+");
@@ -269,8 +203,7 @@ public class MuistipeliUi extends Application {
             }
             optionsGrid.getChildren().remove(delayInfo);
             delayInfo = new Text(Integer.toString(delaySymbol) + " ms");
-            GridPane.setConstraints(delayInfo, 1, 2);
-            optionsGrid.getChildren().add(delayInfo);
+            optionsGrid.add(delayInfo, 1, 2);
         });
         
         Button minusInfoDelayButton = new Button("-");
@@ -282,8 +215,7 @@ public class MuistipeliUi extends Application {
             }
             optionsGrid.getChildren().remove(infoDelayInfo);
             infoDelayInfo = new Text(Integer.toString(delayText) + " ms");
-            GridPane.setConstraints(infoDelayInfo, 1, 3);
-            optionsGrid.getChildren().add(infoDelayInfo);
+            optionsGrid.add(infoDelayInfo, 1, 3);
         });
         
         Button plusInfoDelayButton = new Button("+");
@@ -294,34 +226,19 @@ public class MuistipeliUi extends Application {
             }
             optionsGrid.getChildren().remove(infoDelayInfo);
             infoDelayInfo = new Text(Integer.toString(delayText) + " ms");
-            GridPane.setConstraints(infoDelayInfo, 1, 3);
-            optionsGrid.getChildren().add(infoDelayInfo);
+            optionsGrid.add(infoDelayInfo, 1, 3);
         });
         
         
-        GridPane.setConstraints(minusInfoDelayButton, 4, 3);
-        optionsGrid.getChildren().add(minusInfoDelayButton);
         
-        GridPane.setConstraints(plusInfoDelayButton, 5, 3);
-        optionsGrid.getChildren().add(plusInfoDelayButton);
-        
-        GridPane.setConstraints(minusDelayButton, 4, 2);
-        optionsGrid.getChildren().add(minusDelayButton);
-        
-        GridPane.setConstraints(plusDelayButton, 5, 2);
-        optionsGrid.getChildren().add(plusDelayButton);
-        
-        GridPane.setConstraints(minusDifficultyButton, 4, 1);
-        optionsGrid.getChildren().add(minusDifficultyButton);
-        
-        GridPane.setConstraints(plusDifficultyButton, 5, 1);
-        optionsGrid.getChildren().add(plusDifficultyButton);
-        
-        GridPane.setConstraints(minusStartButton, 4, 0);
-        optionsGrid.getChildren().add(minusStartButton);
-        
-        GridPane.setConstraints(plusStartButton, 5, 0);
-        optionsGrid.getChildren().add(plusStartButton);
+        optionsGrid.add(minusInfoDelayButton, 4, 3);
+        optionsGrid.add(plusInfoDelayButton, 5, 3);
+        optionsGrid.add(minusDelayButton, 4, 2);
+        optionsGrid.add(plusDelayButton, 5, 2);
+        optionsGrid.add(minusDifficultyButton, 4, 1);
+        optionsGrid.add(plusDifficultyButton, 5, 1);
+        optionsGrid.add(minusStartButton, 4, 0);
+        optionsGrid.add(plusStartButton, 5, 0);
         
         
         GridPane optionsSecondGrid = new GridPane();
@@ -339,23 +256,21 @@ public class MuistipeliUi extends Application {
             
             optionsGrid.getChildren().remove(startingRoundInfo);
             startingRoundInfo = new Text(Integer.toString(startingRound));
-            GridPane.setConstraints(startingRoundInfo, 1, 0);
-            optionsGrid.getChildren().add(startingRoundInfo);
+            optionsGrid.add(startingRoundInfo, 1, 0);
+
             
             optionsGrid.getChildren().remove(difficultyInfo);
             difficultyInfo = new Text(Integer.toString(difficulty));
-            GridPane.setConstraints(difficultyInfo, 1, 1);
-            optionsGrid.getChildren().add(difficultyInfo);
+            optionsGrid.add(difficultyInfo, 1, 1);;
             
             optionsGrid.getChildren().remove(delayInfo);
             delayInfo = new Text(Integer.toString(delaySymbol) + " ms");
-            GridPane.setConstraints(delayInfo, 1, 2);
-            optionsGrid.getChildren().add(delayInfo);
+            optionsGrid.add(delayInfo, 1, 2);
             
             optionsGrid.getChildren().remove(infoDelayInfo);
             infoDelayInfo = new Text(Integer.toString(delayText) + " ms");
-            GridPane.setConstraints(infoDelayInfo, 1, 3);
-            optionsGrid.getChildren().add(infoDelayInfo);
+            optionsGrid.add(infoDelayInfo, 1, 3);
+;
             
         }); 
 
@@ -373,8 +288,7 @@ public class MuistipeliUi extends Application {
         settingsButtons.getChildren().add(exitButton2);
         settingsButtons.getChildren().add(defaultsButton);
 
-        GridPane.setConstraints(settingsButtons, 0, 0);
-        optionsSecondGrid.getChildren().add(settingsButtons);
+        optionsSecondGrid.add(settingsButtons, 0, 0);
         optionsSecondGrid.setAlignment(Pos.CENTER);
         
         optionsPane.setBottom(optionsSecondGrid);
@@ -391,7 +305,6 @@ public class MuistipeliUi extends Application {
         VBox gameButtons = new VBox();
         gameButtons.setSpacing(10);
         gameButtons.setAlignment(Pos.CENTER);        
-
 
         
         BorderPane newGamePane = new BorderPane();
@@ -452,15 +365,7 @@ public class MuistipeliUi extends Application {
             thestage.setScene(scoresScene);
         });
         
-//	gameButtons.getChildren().add(newEasyGameButton);        
-//        gameButtons.getChildren().add(newNormalGameButton);
-//        gameButtons.getChildren().add(newBlindGameButton);
-//        gameButtons.getChildren().add(newReverseGameButton);
-//        gameButtons.getChildren().add(optionsButton);
-
         
-
-
         newEasyGameButton.setStyle("-fx-font-size: 1.2em; -fx-text-fill: #8B4513; -fx-background-color: #FFF8DC; -fx-border-color: #DEB887; -fx-border-width: 1px;");
         newNormalGameButton.setStyle("-fx-font-size: 1.2em; -fx-text-fill: #8B4513; -fx-background-color: #FFF8DC; -fx-border-color: #DEB887; -fx-border-width: 1px;");
         newBlindGameButton.setStyle("-fx-font-size: 1.2em; -fx-text-fill: #8B4513; -fx-background-color: #FFF8DC; -fx-border-color: #DEB887; -fx-border-width: 1px;");
@@ -468,19 +373,11 @@ public class MuistipeliUi extends Application {
         optionsButton.setStyle("-fx-text-fill: #8B4513; -fx-background-color: #FFF8DC; -fx-border-color: #DEB887; -fx-border-width: 1px;");
         scoresButton.setStyle("-fx-text-fill: #8B4513; -fx-background-color: #FFF8DC; -fx-border-color: #DEB887; -fx-border-width: 1px;");
 
-        GridPane.setConstraints(newEasyGameButton, 0, 0);
-        gameButtonsGrid.getChildren().add(newEasyGameButton);
         
-        GridPane.setConstraints(newNormalGameButton, 1, 0);
-        gameButtonsGrid.getChildren().add(newNormalGameButton);
-        
-        GridPane.setConstraints(newBlindGameButton, 0, 1);
-        gameButtonsGrid.getChildren().add(newBlindGameButton);
-        
-        GridPane.setConstraints(newReverseGameButton, 1, 1);
-        gameButtonsGrid.getChildren().add(newReverseGameButton);
-        
-
+        gameButtonsGrid.add(newEasyGameButton, 0, 0);
+        gameButtonsGrid.add(newNormalGameButton, 1, 0);
+        gameButtonsGrid.add(newBlindGameButton, 0, 1);
+        gameButtonsGrid.add(newReverseGameButton, 1, 1);
 
         gameButtonsGrid.setAlignment(Pos.CENTER);
         
@@ -562,19 +459,15 @@ public class MuistipeliUi extends Application {
         guessTopPane.setAlignment(Pos.BASELINE_CENTER);
         
         Button button1 = defineButton(1);
-        button1.setStyle("-fx-text-fill: #8B4513; -fx-background-color: #D2B48C; -fx-border-color: #8B4513; -fx-border-width: 0px;");
         button1.setGraphic(greenCircleSmall);
         
         Button button2 = defineButton(2);
-        button2.setStyle("-fx-text-fill: #8B4513; -fx-background-color: #D2B48C; -fx-border-color: #8B4513; -fx-border-width: 0px;");
         button2.setGraphic(redTriangleSmall);
         
         Button button3 = defineButton(3);
-        button3.setStyle("-fx-text-fill: #8B4513; -fx-background-color: #D2B48C; -fx-border-color: #8B4513; -fx-border-width: 0px;");
         button3.setGraphic(yellowCircleSmall);
         
         Button button4 = defineButton(4);
-        button4.setStyle("-fx-text-fill: #8B4513; -fx-background-color: #D2B48C; -fx-border-color: #8B4513; -fx-border-width: 0px;");
         button4.setGraphic(blueSquareSmall);
         
 	bottomButtons.getChildren().add(button1);
@@ -603,6 +496,7 @@ public class MuistipeliUi extends Application {
     
     public Button defineButton(int buttonNmbr) {
        Button buttonX = new Button("");
+       buttonX.setStyle("-fx-text-fill: #8B4513; -fx-background-color: #D2B48C; -fx-border-color: #8B4513; -fx-border-width: 0px;");
         buttonX.setOnAction((event) -> {
             if (newGame.compareAnswer(buttonNmbr)) {
                 scoring.setText("Pisteet: " + Integer.toString(newGame.getScore()));
@@ -624,11 +518,8 @@ public class MuistipeliUi extends Application {
                     }
 
                     this.showSymbols();
-                    
-
                     scoring.setText("Pisteet: " + Integer.toString(newGame.getScore()));
                     askSymbolsPane.setTop(guessTopPane);
-                    // guessScene = new Scene(askSymbolsPane);  blows up
                     thestage.setScene(guessScene); 
                 }
             } else {
@@ -656,89 +547,39 @@ public class MuistipeliUi extends Application {
         scoresGrid.setHgap(30);
 
         
-        Text modeInfo = new Text("Pelimuoto");
-        GridPane.setConstraints(modeInfo, 0, 0);
-        Text playerInfo = new Text("Pelaaja");
-        GridPane.setConstraints(playerInfo, 1, 0);
-        Text scoreInfo = new Text("Pisteet");
-        GridPane.setConstraints(scoreInfo, 2, 0);
-        scoresGrid.getChildren().add(modeInfo);
-        scoresGrid.getChildren().add(playerInfo);
-        scoresGrid.getChildren().add(scoreInfo);
+        scoresGrid.add(new Text("Pelimuoto"), 0, 0);
+        scoresGrid.add(new Text("Pelaaja"), 1, 0);
+        scoresGrid.add(new Text("Pisteet"), 2, 0);
+
         
         Text easyLabel = new Text("Helppo:");
         easyLabel.setFill(Color.SADDLEBROWN);
-        GridPane.setConstraints(easyLabel, 0, 1);
-        scoresGrid.getChildren().add(easyLabel);
+        scoresGrid.add(easyLabel, 0, 1);
 
         Text normalLabel = new Text("Normaali:");
         normalLabel.setFill(Color.SADDLEBROWN);
-        GridPane.setConstraints(normalLabel, 0, 2);
-        scoresGrid.getChildren().add(normalLabel);
-        
+        scoresGrid.add(normalLabel, 0, 2);
+
         Text blindLabel = new Text("Sokko:");
         blindLabel.setFill(Color.SADDLEBROWN);
-        GridPane.setConstraints(blindLabel, 0, 3);
-        scoresGrid.getChildren().add(blindLabel);
-        
+        scoresGrid.add(blindLabel, 0, 3);
+ 
         Text reverseLabel = new Text("Reverse:");
         reverseLabel.setFill(Color.SADDLEBROWN);
-        GridPane.setConstraints(reverseLabel, 0, 4);
-        scoresGrid.getChildren().add(reverseLabel);
-        
-        
+        scoresGrid.add(reverseLabel, 0, 4);
 
-        Text easyTopScorePlayer = new Text(scoredao.bestScore("Easy").getPlayerName());
-        easyTopScorePlayer.setFill(Color.BLACK);
-        GridPane.setConstraints(easyTopScorePlayer, 1, 1);
-        scoresGrid.getChildren().add(easyTopScorePlayer);
-
-        Text normalTopScorePlayer = new Text(scoredao.bestScore("Normal").getPlayerName());
-        normalTopScorePlayer.setFill(Color.BLACK);
-        GridPane.setConstraints(normalTopScorePlayer, 1, 2);
-        scoresGrid.getChildren().add(normalTopScorePlayer);
         
-        Text blindTopScorePlayer = new Text(scoredao.bestScore("Blind").getPlayerName());
-        blindTopScorePlayer.setFill(Color.BLACK);
-        GridPane.setConstraints(blindTopScorePlayer, 1, 3);
-        scoresGrid.getChildren().add(blindTopScorePlayer);
-        
-        Text reverseTopScorePlayer = new Text(scoredao.bestScore("Reverse").getPlayerName());
-        reverseTopScorePlayer.setFill(Color.BLACK);
-        GridPane.setConstraints(reverseTopScorePlayer, 1, 4);
-        scoresGrid.getChildren().add(reverseTopScorePlayer);
-        
-        
-        Text easyTopScore = new Text(Integer.toString(scoredao.bestScore("Easy").getScore()));
-        easyTopScore.setFill(Color.BLACK);
-        GridPane.setConstraints(easyTopScore, 2, 1);
-        scoresGrid.getChildren().add(easyTopScore);
-
-        Text normalTopScore = new Text(Integer.toString(scoredao.bestScore("Normal").getScore()));
-        normalTopScore.setFill(Color.BLACK);
-        GridPane.setConstraints(normalTopScore, 2, 2);
-        scoresGrid.getChildren().add(normalTopScore);
-        
-        Text blindTopScore = new Text(Integer.toString(scoredao.bestScore("Blind").getScore()));
-        blindTopScore.setFill(Color.BLACK);
-        GridPane.setConstraints(blindTopScore, 2, 3);
-        scoresGrid.getChildren().add(blindTopScore);
-        
-        Text reverseTopScore = new Text(Integer.toString(scoredao.bestScore("Reverse").getScore()));
-        reverseTopScore.setFill(Color.BLACK);
-        GridPane.setConstraints(reverseTopScore, 2, 4);
-        scoresGrid.getChildren().add(reverseTopScore);
-        
-        
-        
+        scoresGrid.add(new Text(scoredao.bestScore("Easy").getPlayerName()), 1, 1);
+        scoresGrid.add(new Text(scoredao.bestScore("Normal").getPlayerName()), 1, 2);
+        scoresGrid.add(new Text(scoredao.bestScore("Blind").getPlayerName()), 1, 3);      
+        scoresGrid.add(new Text(scoredao.bestScore("Reverse").getPlayerName()), 1, 4);        
+        scoresGrid.add(new Text(Integer.toString(scoredao.bestScore("Easy").getScore())), 2, 1);
+        scoresGrid.add(new Text(Integer.toString(scoredao.bestScore("Normal").getScore())), 2, 2);
+        scoresGrid.add(new Text(Integer.toString(scoredao.bestScore("Blind").getScore())), 2, 3);
+        scoresGrid.add(new Text(Integer.toString(scoredao.bestScore("Reverse").getScore())), 2, 4);
         scoresGrid.setAlignment(Pos.CENTER);
-        
         scoresPane.setTop(scoresGrid);
         scoresScene = new Scene(scoresPane, 285, 260);       
-        
-        
-    
-        
         GridPane scoresSecondGrid = new GridPane();
         scoresSecondGrid.setPadding(new Insets(0, 20, 20, 20));
 
@@ -787,8 +628,6 @@ public class MuistipeliUi extends Application {
     
     
     public void defineEndScene() {
-        
-        
         TextField playerNick = new TextField("nimimerkkisi");
         playerNick.setPromptText("nimimerkkisi");
         playerNick.setMaxWidth(150);
@@ -849,14 +688,10 @@ public class MuistipeliUi extends Application {
                     thestage.setScene(endGameScene);
                 }
 
-            }
-            
-            
-            
+            } 
         });
         
 
-        
         BorderPane endgamePane = new BorderPane();
         VBox endgame = new VBox();
         
@@ -889,14 +724,9 @@ public class MuistipeliUi extends Application {
     public void showSymbols() { 
         showSymbolsPane.setCenter(new Label("Kierros " + Integer.toString(newGame.getRoundNumber()) + "!   Valmistaudu!"));
         thestage.setScene(showSymbolsScene);
-
-
         delay1 = delayText;
-
         // haetaan symbolit       
         while (true) {
-            // printtaa ruudulle haetun mukaisen symbolin, toisin sanoen vaihtaa laatikon väriä (ehkä olisi mukavampi jos olisi värillinen ja jonkin muotoinen)
-            // pitääkö jokaisella värillä olla erillinen scene? vai miten vanhaa sceneä updatetaan?
             int print = this.newGame.nextSymbol();
             
             if (print > 0) {
@@ -955,7 +785,6 @@ public class MuistipeliUi extends Application {
                 }
 
             } else {   // jos print on nolla, niin hypätään seuraavaan vaiheeseen
-                // System.out.println("Paina painikkeita juuri näkemässäsi järjestyksessä!");
                 break;
             }
 
@@ -973,6 +802,58 @@ public class MuistipeliUi extends Application {
         });
         thread5.setDaemon(true);
         thread5.start();
+    }
+    
+    public void defineSymbolScenes() {
+        Circle greenCircleBig = new Circle();    
+        greenCircleBig.setCenterX(142.5f); 
+        greenCircleBig.setCenterY(125.0f); 
+        greenCircleBig.setRadius(70.0f); 
+        greenCircleBig.setFill(Color.GREEN);    
+        greenCircleBig.setStrokeWidth(2);  
+        greenCircleBig.setStroke(Color.BLACK);
+
+        Group root1 = new Group(greenCircleBig); 
+        symbolOneScene = new Scene(root1, 285, 250, Color.IVORY);  
+        
+
+        Polygon redTriangleBig = new Polygon();
+        redTriangleBig.getPoints().addAll(new Double[]{
+            145.0, 55.0,
+            70.0, 190.0,
+            220.0, 190.0 });
+        redTriangleBig.setFill(Color.RED);    
+        redTriangleBig.setStrokeWidth(2); 
+        redTriangleBig.setStroke(Color.BLACK);
+
+        Group root2 = new Group(redTriangleBig); 
+        symbolTwoScene = new Scene(root2, 285, 250, Color.IVORY);  
+        
+        
+        Circle yellowCircleBig = new Circle();    
+        yellowCircleBig.setCenterX(142.5f); 
+        yellowCircleBig.setCenterY(125.0f); 
+        yellowCircleBig.setRadius(70.0f); 
+        yellowCircleBig.setFill(Color.YELLOW);    
+        yellowCircleBig.setStrokeWidth(2); 
+        yellowCircleBig.setStroke(Color.BLACK);
+    
+        Group root3 = new Group(yellowCircleBig); 
+        symbolThreeScene = new Scene(root3, 285, 250, Color.IVORY);  
+        
+        Rectangle blueSquareBig = new Rectangle();
+        blueSquareBig.setX(82.5);
+        blueSquareBig.setY(70);
+        blueSquareBig.setWidth(120);
+        blueSquareBig.setHeight(120);
+        blueSquareBig.setArcWidth(1);
+        blueSquareBig.setArcHeight(1);  
+        blueSquareBig.setFill(Color.DARKBLUE);    
+        blueSquareBig.setStrokeWidth(2);  
+        blueSquareBig.setStroke(Color.BLACK);
+
+        Group root4 = new Group(blueSquareBig); 
+        symbolFourScene = new Scene(root4, 285, 250, Color.IVORY);
     }
     
         

@@ -33,16 +33,20 @@ public class ScoreDaoTest {
     }
 
     
-    // testaa että ensimmäinen numero/symboli on legit
+    
     @Test
-    public void currentSymbolWorks() {
+    public void bestScoreUpdate() {
         test1Score = new Score("Timo", 30, "Reverse");
         try {
             scoredao.saveScore(test1Score);
         } catch (SQLException ex) {
             System.out.println("error");
         }
-        assertTrue(1 <= this.newround.currentSymbol() && this.newround.currentSymbol() <= 4);
+        try {
+            assertEquals("Timo", scoredao.bestScore("Reverse").getPlayerName());
+        } catch (SQLException ex) {
+            System.out.println("error");
+        }
     }
     
     

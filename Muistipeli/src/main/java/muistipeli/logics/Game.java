@@ -53,7 +53,7 @@ public class Game {
      * @return ketjun seuraava symboli
      */
     public int nextSymbol() {
-        if (this.roundNumber*this.difficulty <= this.symbolNumber) {
+        if (this.roundNumber * this.difficulty <= this.symbolNumber) {
             this.symbolNumber = 0;
             this.roundX.setMarker(0);
             return 0;
@@ -82,7 +82,7 @@ public class Game {
             return false;
         }
         // jos pelaaja sai kaikki numerot oikein, poistutaan loopista
-        if (this.symbolNumber >= this.roundNumber*this.difficulty) {
+        if (this.symbolNumber >= this.roundNumber * this.difficulty) {
             this.roundPassed = true;
         }
         return true;
@@ -101,6 +101,10 @@ public class Game {
         return this.mode;
     }
     
+    // testaustarkoituksiin
+    public void setRoundPassed(boolean truth) {
+        this.roundPassed = truth;
+    }
 
     
     /**
@@ -113,12 +117,12 @@ public class Game {
      * @return boolean, onnistuiko konfigurointi
      */   
     private boolean configure(int chosenDifficulty, int chosenStart) {
-        if (chosenDifficulty > 0 && chosenDifficulty < 100 && chosenStart> 0 && chosenStart < 100) {
-            this.roundX = new Round(this.roundNumber*this.difficulty);
+        if (chosenDifficulty > 0 && chosenDifficulty < 100 && chosenStart > 0 && chosenStart < 100) {
+            this.roundX = new Round(this.roundNumber * this.difficulty);
             this.ranked = false;
             return true;            
         }
-        if (chosenDifficulty == 0 && chosenStart> 0 && chosenStart < 100) {
+        if (chosenDifficulty == 0 && chosenStart > 0 && chosenStart < 100) {
             this.roundX = new Round(this.roundNumber);
             this.ranked = false;
             return true;            
@@ -126,10 +130,6 @@ public class Game {
         return false;
     } 
     
-    
-    
-//     * @param   chosenDelay   Kuinka nopeasti pelaajalle näytetään symboliketjun
-//     * symboleita, pelaajan valitsema parametri, sekunnin kymmenesosissa
     
     
     /**
@@ -147,7 +147,7 @@ public class Game {
                 return true;
             }
             this.roundNumber++;
-            this.roundX = new Round(this.roundNumber*this.difficulty);
+            this.roundX = new Round(this.roundNumber * this.difficulty);
             return true;
         }
         return false;

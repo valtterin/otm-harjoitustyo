@@ -89,8 +89,6 @@ public class ScoreDao implements Dao<Score, Integer> {
         statement.executeUpdate();  
                 
         connection.close();    
-        
-
         return true;
     }
     

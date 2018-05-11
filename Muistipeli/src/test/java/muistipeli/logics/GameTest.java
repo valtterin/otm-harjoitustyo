@@ -15,12 +15,13 @@ public class GameTest {
     Game test;
     Game testZero;
     Game testTwo;
+    Game testFail;
     
     @Before
     public void setUp() {
         test = new Game(1, 1);
         testZero = new Game(0,3);
-        testTwo = new Game(2,2);
+        testFail = new Game(100,0);
     }
     
     @Test
@@ -41,8 +42,8 @@ public class GameTest {
         assertTrue(!this.test.compareAnswer(5));
     }
     
-    // tämä testi on purkkaa
-    // toimii vain, koska kyseessä ensimmäinen kierros
+    
+    // testi toimii vain, koska kyseessä ensimmäinen kierros
     // brutaalisti käydään kaikki mahdolliset vastaukset läpi oikean löytämiseksi
     // normaalissa pelissä peli loppuisi heti ensimmäiseen väärään vastaukseen, joten testaaminen idioottivarmasti on hankalahkoa
     @Test
@@ -83,6 +84,18 @@ public class GameTest {
         assertTrue(!this.test.nextRound());
     }
     
+    @Test
+    public void difficultyZero() {
+        testZero.setRoundPassed(true);
+        this.testZero.nextRound();
+        testZero.setRoundPassed(true);
+        this.testZero.nextRound();
+        testZero.setRoundPassed(true);
+        this.testZero.nextRound();;
+        assertEquals(testZero.getRoundNumber(), 3);
+    }
+    
+
     
     
     

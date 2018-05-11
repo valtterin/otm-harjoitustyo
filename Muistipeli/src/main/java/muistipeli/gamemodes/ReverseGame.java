@@ -20,7 +20,7 @@ public class ReverseGame extends Game {
      */    
     @Override
     public int nextSymbol() {
-        if (this.roundNumber*this.difficulty <= this.symbolNumber) {
+        if (this.roundNumber * this.difficulty <= this.symbolNumber) {
             return 0;
         }
         

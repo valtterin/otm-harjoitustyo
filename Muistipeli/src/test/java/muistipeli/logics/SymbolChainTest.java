@@ -25,7 +25,6 @@ public class SymbolChainTest {
      @Test
     public void getSymbolWorks() {
         assertTrue(1 <= this.testchain.getSymbol(3) && this.testchain.getSymbol(3) <= 4);
-        // assertEquals(4, this.testchain.getSymbol(3));
     }
     
      @Test
@@ -39,7 +38,6 @@ public class SymbolChainTest {
     }
      
     
-    ///
      @Test
     public void getSizeWorks() {
         assertEquals(4, this.testchain.getSize());

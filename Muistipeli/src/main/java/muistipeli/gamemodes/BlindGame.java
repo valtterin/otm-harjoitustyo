@@ -25,7 +25,7 @@ public class BlindGame extends Game {
      */ 
     @Override
     public int nextSymbol() {
-        if (this.roundNumber*this.difficulty <= this.symbolNumber) {
+        if (this.roundNumber * this.difficulty <= this.symbolNumber) {
             this.symbolNumber = 0;
             this.roundX.setMarker(0);
             return 0;

@@ -5,7 +5,6 @@ package muistipeli.database;
 public class Score {
     private String playerName;
     private int score;
-//    private Integer id;
     private String gamemode;
     
 
@@ -27,9 +26,6 @@ public class Score {
         return this.gamemode;
     }
     
-//    public Integer getId() {
-//        return this.id;
-//    }
     
     public void setPlayerName(String player) {
         this.playerName = player;
@@ -40,11 +36,6 @@ public class Score {
     public void setGamemode(String gamemode) {
         this.gamemode = gamemode;
     }
-    
-//    public void setId(Integer id) {
-//        this.id = id;
-//    }
-    
 
         
 }

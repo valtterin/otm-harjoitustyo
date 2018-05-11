@@ -71,11 +71,7 @@ public class SymbolChain {
      * Metodi lisää yhden uuden symbolin ketjun loppuun.
      */
     public void addSymbol() {
-        // tähän toiminnallisuus satunnaisten numeroiden arpomiseen ja lisäämiseen listaan
-        // this.chain.add(4);   //placeholder
         while (true) {
-            // tähän toiminnallisuus satunnaisten numeroiden arpomiseen ja lisäämiseen listaan
-            // this.chain.add(4);   //placeholder
             Random rand = new Random();
             int randomNmbr = rand.nextInt(4) + 1;
             

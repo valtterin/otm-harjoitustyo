@@ -94,9 +94,8 @@ public class Round {
      * @param   number   uusien symboleiden lukumäärä
      */
     public void nextRound(int number) {
-        // this.marker = 0;
         int i = 0;
-        while (i<number) {
+        while (i < number) {
             this.chain.addSymbol();
             i++;
         }

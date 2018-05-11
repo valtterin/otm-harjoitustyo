@@ -8,13 +8,10 @@ import muistipeli.logics.Game;
  */ 
 public class EasyGame extends Game {
     
-
-    
     public EasyGame(int chosenDifficulty, int chosenStart) {
         super(chosenDifficulty, chosenStart);
         this.mode = "Easy";
     }
-    
     
     /**
      * Metodi tarkastaa, onko pelaaja läpäissyt kierroksen. 
