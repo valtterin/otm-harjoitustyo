@@ -19,4 +19,4 @@ Tällä hetkellä symboliketju koostuu satunnaisesti numeroista väliltä 1-4. T
 
 Tällä hetkellä testauksen rivikattavuus näyttää seuraavalta
 
-[](https://raw.githubusercontent.com/valtterin/otm-harjoitustyo/master/Dokumentaatio/muistipeliTesting.png)
+![](https://raw.githubusercontent.com/valtterin/otm-harjoitustyo/master/Dokumentaatio/muistipeliTesting.png)
